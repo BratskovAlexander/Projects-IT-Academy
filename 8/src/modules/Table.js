@@ -1,4 +1,4 @@
-import { Laptop } from './loptop.js';
+import { Laptop } from './Loptop.js';
 
 function Table(quantity, ) {
     this.quantity = quantity;
