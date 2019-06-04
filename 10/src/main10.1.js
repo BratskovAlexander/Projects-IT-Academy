@@ -1,5 +1,5 @@
-import { Clock } from './modules/Clock.js';
 import { Tabs } from './modules/Tabs.js';
+import { Clock } from './modules/Clock.js';
 import { Stopwatch } from './modules/Stopwatch.js';
 import { Timer } from './modules/Timer.js';
 
