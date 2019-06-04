@@ -30,31 +30,31 @@ function setSelected(elem) {
     elem.classList.add("selected"); 
 };
 
-// function deleteHidden(){
-//     arrayTabs.forEach(function() {
-//         const clockMode  = htmlElements.clock.dataset.mode;
-//         clockMode.className.remove("hidden");
-//         htmlElements.stopwatch.dataset.mode.classList.remove("hidden");
-//         htmlElements.timer.dataset.mode.classList.remove("hidden");
-//     });
-//     };
+function deleteHidden(){
+    arrayTabs.forEach(function() {
+        const clockMode  = htmlElements.clock.dataset.mode;
+        clockMode.className.remove("hidden");
+        htmlElements.stopwatch.dataset.mode.classList.remove("hidden");
+        htmlElements.timer.dataset.mode.classList.remove("hidden");
+    });
+    };
 
 function switchToMode(mode) {
     switch(mode) {
     case "clock":
         deleteSelected();
         setSelected(htmlElements.clock);
-        // htmlElements.clock.dataset.mode.classList.remove("hidden");
+        htmlElements.clock.dataset.mode.classList.remove("hidden");
         break;
     case "stopwatch":
         deleteSelected();
         setSelected(htmlElements.stopwatch);
-        // deleteHidden();
+        deleteHidden();
         break;
     case "timer":
         deleteSelected();
         setSelected(htmlElements.timer);
-        // deleteHidden();
+        deleteHidden();
         break;
     };
 };
