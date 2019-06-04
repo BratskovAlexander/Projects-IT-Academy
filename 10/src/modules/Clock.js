@@ -14,10 +14,10 @@ function onIntervalNextTick() {
 };
 onIntervalNextTick();
 
-function addClock() {
-    const clockMode = htmlElements.clock.dataset.mode;
-    clockMode.classList.remove("hidden");
-}
-addClock();
+// function addClock() {
+//     const clockMode = htmlElements.clock.dataset.mode;
+//     clockMode.classList.remove("hidden");
+// }
+// addClock();
 
 export { Clock };
