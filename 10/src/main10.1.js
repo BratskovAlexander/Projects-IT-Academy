@@ -4,7 +4,6 @@ import { Stopwatch } from './modules/Stopwatch.js';
 import { Timer } from './modules/Timer.js';
 
     
-
     const clock = new Clock();
     const tabs = new Tabs();
     const stopwatch = new Stopwatch();
