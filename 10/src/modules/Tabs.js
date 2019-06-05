@@ -10,9 +10,9 @@ htmlElements.tabsClock = document.querySelector('.container .tabs div[data-mode=
 htmlElements.tabsStopwatch = document.querySelector('.container .tabs div[data-mode="stopwatch"]');
 htmlElements.tabsTimer = document.querySelector('.container .tabs div[data-mode="timer"]');
 
-htmlElements.clock.addEventListener("click", function() {switchToMode(this.dataset.mode)});
-htmlElements.stopwatch.addEventListener("click", function() {switchToMode(this.dataset.mode)});
-htmlElements.timer.addEventListener("click", function() {switchToMode(this.dataset.mode)});
+htmlElements.clock.addEventListener("click", function() {Tabs(this.dataset.mode)});
+htmlElements.stopwatch.addEventListener("click", function() {Tabs(this.dataset.mode)});
+htmlElements.timer.addEventListener("click", function() {Tabs(this.dataset.mode)});
 
 
 const arrayTabs = [htmlElements.clock, htmlElements.stopwatch, htmlElements.timer];
@@ -27,17 +27,7 @@ arrayTabs.forEach(function() {
 
 
 function setSelected(elem) {
-    elem.classList.add("selected"); 
-    // if(elem.dataset.mode === 'clock') {
-    //     htmlElements.tabsClock.classList.remove("hidden");
-    //     if(elem.dataset.mode === 'stopwatch') {
-    //         htmlElements.tabsStopwatch.classList.remove("hidden");
-    //         if(elem.dataset.mode === 'timer') {
-    //             htmlElements.tabsTimer.classList.remove("hidden");
-    //             }
-    //         }
-    //     }
-    
+    elem.classList.add("selected");   
 };
 
 function deleteHidden(){
@@ -47,9 +37,7 @@ function deleteHidden(){
     };
     
 
-
-function switchToMode(mode) {
-    switch(mode) {
+function Tabs(mode) {switch(mode) {
     case "clock":
         deleteSelected();
         deleteHidden();
@@ -68,9 +56,6 @@ function switchToMode(mode) {
         setSelected(htmlElements.timer);
         htmlElements.tabsTimer.classList.remove("hidden");
         break;
-    };
-};
-
-function Tabs() {};
+    };};
 
 export { Tabs };

@@ -10,11 +10,29 @@ import { Timer } from './modules/Timer.js';
     const stopwatch = new Stopwatch();
     const timer = new Timer();
 
-// function init() {
-//   clock.init();
-//   tabs.init();
-//   stopwatch.init();
-//   timer.init();
-// }
+Clock.prototype.init = function() {
+    setInterval(Clock, 1000);
+    Clock();
+};
+Tabs.prototype.init = function() {
+    Tabs();
+};
+Stopwatch.prototype.init = function() {
+    Stopwatch();
+};
+Timer.prototype.init = function() {
+    Timer();
+};
 
-// init();
+
+
+
+
+function init() {
+  clock.init();
+  tabs.init();
+  stopwatch.init();
+  timer.init();
+}
+
+init();

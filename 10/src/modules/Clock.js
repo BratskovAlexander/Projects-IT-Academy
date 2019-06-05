@@ -1,8 +1,12 @@
-setInterval(Clock, 1000);
-
 const htmlElements = {};
+htmlElements.tabsClock = document.querySelector('.container .tabs div[data-mode="clock"]');
 htmlElements.clock = document.querySelector('.container .links .clock');
 htmlElements.output = document.querySelector('.container .output');
+
+function addClockDefault() {
+    htmlElements.tabsClock.classList.remove("hidden");
+};
+addClockDefault();
 
 function Clock() {
     const newTime = new Date ();
