@@ -14,12 +14,12 @@ let myInterval;
 
 function onButtonClick() {
    startTime = new Date().getTime();
-   myInterval = setInterval(Stopwatch, 10);
-
+   myInterval = setInterval(apdateOutput, 10);
+   htmlElements.startBtn.setAttribute('disabled', 'disabled');
 };
 
-function Stopwatch() {
-
+function apdateOutput() {
+    
     const difference = (new Date().getTime() - startTime)  / 10;
     let hundredth = parseInt(difference%99); 
     let seconds = parseInt((difference / 100)%60);
@@ -37,17 +37,24 @@ function Stopwatch() {
     htmlElements.outputStopwatch.innerText = `${minutes}:${seconds}:${hundredth}`;
 };
 
+function Stopwatch() {};
+
+ Stopwatch.prototype.init = function() {
+    apdateOutput();
+  };
 
 
 function stopStopwatch() {
     clearInterval(myInterval);
+    htmlElements.startBtn.removeAttribute('disabled');
 };
 
 function resetStopwatch() {
+    stopStopwatch();
     htmlElements.outputStopwatch.innerText = '00:00:00';
 }
 
 
 
 
-// export { Stopwatch };
+export { Stopwatch };

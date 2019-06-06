@@ -8,6 +8,7 @@ htmlElements.timer = document.querySelector('.container .links .timer');
 htmlElements.output = document.querySelector('.container .output');
 htmlElements.tabsClock = document.querySelector('.container .tabs div[data-mode="clock"]');
 htmlElements.tabsStopwatch = document.querySelector('.container .tabs div[data-mode="stopwatch"]');
+htmlElements.outputStopwatch = document.querySelector('.container div[data-mode="stopwatch"] .output');
 htmlElements.tabsTimer = document.querySelector('.container .tabs div[data-mode="timer"]');
 
 htmlElements.clock.addEventListener("click", function() {Tabs(this.dataset.mode)});
@@ -49,6 +50,7 @@ function Tabs(mode) {switch(mode) {
         deleteHidden();
         setSelected(htmlElements.stopwatch);
         htmlElements.tabsStopwatch.classList.remove("hidden");
+        htmlElements.outputStopwatch.innerText = '00:00:00';
         break;
     case "timer":
         deleteSelected();
@@ -57,5 +59,9 @@ function Tabs(mode) {switch(mode) {
         htmlElements.tabsTimer.classList.remove("hidden");
         break;
     };};
+
+    Tabs.prototype.init = function() {
+        Tabs();
+    };
 
 export { Tabs };

@@ -15,5 +15,10 @@ function Clock() {
     htmlElements.output.innerText = timeOfArray;
 };
 
+Clock.prototype.init = function() {
+    setInterval(Clock, 1000);
+    Clock();
+};
+
 
 export { Clock };
