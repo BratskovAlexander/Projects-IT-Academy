@@ -1,4 +1,4 @@
-import { Room57 } from "./script/Room57.js";
+import { Room57 } from "./modules/Room57.js";
 
 
 const room57 = new Room57(57, 12, 3, 12);
