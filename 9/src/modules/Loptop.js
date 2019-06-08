@@ -1,15 +1,24 @@
-import { MonitorLaptop } from './monitor.js';
+import { MonitorLaptop } from './Monitor.js';
 
 function Laptop() {
     this.name = 'Acer';
     this.monitor = new MonitorLaptop();
     const checSoundLevel = function(levelSound){
       console.log(`Level sound Laptop: ${levelSound}`);
-  };
-  checSoundLevel('50%');
-  this.checkQuantityButton = function(quantity) {
+    };
+    checSoundLevel('50%');
+    this.checkQuantityButton = function(quantity) {
     console.log(`quantity button are ${quantity}`);
-};
+    };
+
+    this.changeName = function () {
+      this.name = 'Asus';
+    };
+
+  };
+  Laptop.prototype.changeName = function(name) {
+    this.name = name;
+    name = 'HP';
   };
   
   Laptop.prototype.open = function(yes) {

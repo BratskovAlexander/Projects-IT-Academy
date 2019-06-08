@@ -8,10 +8,15 @@ function Projector(quantity) {
   this.checkStateProjector = function(sleep) {
     console.log(`projector is ${sleep} `);
 };
-
+this.changeColor = function () {
+    this.color = 'gray';
+  };
 };
 
-
+Projector.prototype.changeColor = function(color) {
+    this.color = color;
+    color = 'black';
+  };
 Projector.prototype.show = function(included, switchedOff) {
     this.included = included;
     this.switchedOff = switchedOff;

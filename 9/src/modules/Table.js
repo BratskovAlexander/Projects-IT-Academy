@@ -4,6 +4,10 @@ function Table(quantity, table) {
     this.quantity = quantity;
     this.laptop = new Laptop();
     this.table = table;
+    this.color = 'gray';
+    this.changeColor = function () {
+        this.color = 'black';
+      };
     this.checkWhoseTable = function(tableFor) {
         console.log(`The ${tableFor} from Ikea!`);
     };
@@ -14,6 +18,10 @@ function Table(quantity, table) {
 };
 
 
+Table.prototype.changeColor = function(color) {
+    this.color = color;
+    color = 'black';
+  };
 Table.prototype.changeForm = function() {
     this.smallTable = 'table is small!';
     this.bigTable = 'table is big!';

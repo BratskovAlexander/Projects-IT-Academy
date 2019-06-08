@@ -8,9 +8,15 @@ function MonitorLaptop() {
   this.checkStateMonitor = function(sleep) {
     console.log(`Laptop is ${sleep} `);
   };
+  this.changeStatusOff = function () {
+    this.statusOff = 'just the monitor is not work';
   };
-  
-  
+  };
+    
+  MonitorLaptop.prototype.changeStatusOff = function(status) {
+    this.status = status;
+    status = 'the monitor has broken';
+  };
   MonitorLaptop.prototype.showMovie = function(yes) {
     if (yes) {
         console.log('the laptop on the table,');
