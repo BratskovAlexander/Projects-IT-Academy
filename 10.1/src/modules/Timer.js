@@ -19,11 +19,15 @@ function onButtonClick() {
    htmlElements.startBtn.setAttribute('disabled', 'disabled');
 };
 
+let minutesDefault = 4;
+let secondsDefault = 60;
+
+
 function apdateOutputTimer() {
     
     const difference = (new Date().getTime() - startTime) / 1000;
-    let seconds = 60 - parseInt(difference%60); 
-    let minutes = 4 - parseInt((difference / 60)%60);
+    let seconds = secondsDefault - parseInt(difference%60); 
+    let minutes = minutesDefault - parseInt((difference / 60)%60);
     let hours = '00';
 
     if (seconds < 10) {
