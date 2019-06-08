@@ -11,6 +11,8 @@ htmlElements.resetBtn.addEventListener('click', resetStopwatch);
 
 let startTime; 
 let myInterval;
+let differenceInTime = 0;
+let lastDifferenceInTime = 0;
 
 function onButtonClick() {
    startTime = new Date().getTime();
