@@ -18,16 +18,16 @@ function Room57(number, width, height, length) {
     this.board = new Board(135, 85)
     const student = function(name){
         console.log(`Name student: ${name}`);
-    };
+    };//её область видимости ограничена функцией Room57
     student('Sasha');
 
-    const frontSide = new Board('2 metr', '1,3 metr');
-    frontSide.changeSize()
+    const frontSide = new Board('2 metr', '1,3 metr');//её область видимости ограничена функцией Room57
+    frontSide.changeSize();
 };
 
 Projector.prototype.changeStatusRoom = function(room) {
   this.room = room;
-  room = 'the room for rest';
+  room = 'the room for rest';//её область видимости ограничена функцией changeStatusRoom
 };
 Room57.prototype.checkThelight = function() {
   this.lightOn = 'the light is on!';

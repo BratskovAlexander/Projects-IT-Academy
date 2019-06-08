@@ -7,7 +7,7 @@ function AirCondition(quantity) {
     
     const checkTemperatureAir = function(degrees){
         console.log(`temperature air in room: ${degrees} degrees`);
-    };
+    };//её область видимости ограничена функцией AirCondition, для всего модуля это локальная переменная(константа)
     checkTemperatureAir(20);
     this.checkNamecondition = function(name) {
         console.log(`AirCondition ${name} made in China!`);
@@ -16,13 +16,13 @@ function AirCondition(quantity) {
 
 AirCondition.prototype.changeColor = function(color) {
     this.color = color;
-    color = 'black';
+    color = 'black';//её область видимости ограничена функцией changeColor,
   };
 AirCondition.prototype.blow = function(temperatureColdAir, temperatureWarmAir) {
     this.temperatureColdAir = temperatureColdAir;
     this.temperatureWarmAir = temperatureWarmAir;
 
-    const nameAirCondition = new AirCondition();
+    const nameAirCondition = new AirCondition();//её область видимости ограничена функцией blow,
     nameAirCondition.checkNamecondition('philips');
 };
 

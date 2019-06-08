@@ -1,9 +1,9 @@
 import { Laptop } from './Loptop.js';
 
-let madeIn = 'Belarus';
+let madeIn = 'Belarus';//её область видимости ограничена модулем Table.js
 
 function Table(quantity, table) {
-    madeIn = 'Russia';
+    madeIn = 'Russia';//её область видимости ограничена функцией Table
     this.quantity = quantity;
     this.laptop = new Laptop();
     this.table = table;
@@ -16,20 +16,20 @@ function Table(quantity, table) {
     };
     const checkIfThereIsASocket = function(yesOrNo){
         console.log(`the socket is: ${yesOrNo}`);
-    };
+    };//её область видимости ограничена функцией Table
     checkIfThereIsASocket("available");
 };
 
-madeIn = 'China';
+madeIn = 'China';//её область видимости ограничена модулем Table.js
 
-let quantityStudents = 10;
+let quantityStudents = 10;//её область видимости ограничена модулем Table.js
 
-for(let i = 1; i<quantityStudents; i++) {
+for(let i = 1;/*её область видимости ограничена циклом for*/ i<quantityStudents; i++) {
     console.log(i);
 };
 
 if (quantityStudents < 12) {
-    console.log(`quantity Students in room is ${quantityStudents = 7}`);
+    console.log(`quantity Students in room is ${quantityStudents = 7}`/*её область видимости ограничена циклом for*/);
 };
 
 
@@ -38,7 +38,7 @@ switch (quantityStudents) {
     console.log(`Столов не хватит, потому что пришло ${quantityStudents}`);
     break;
   case 7:
-    quantityStudents = 'пол группы';
+    quantityStudents = 'пол группы';/*её область видимости ограничена Конструкцией switch*/
     console.log(`Столов хватит, потому что пришло ${quantityStudents}`);
     break;
   case 10:
@@ -50,7 +50,7 @@ switch (quantityStudents) {
 
 Table.prototype.changeColor = function(color) {
     this.color = color;
-    color = 'black';
+    color = 'black';//её область видимости ограничена функцией changeColor
   };
  
 Table.prototype.changeForm = function() {

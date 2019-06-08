@@ -12,7 +12,7 @@
 
       Board.prototype.changeColor = function(color) {
         this.color = color;
-        color = 'black';
+        color = 'black';//её область видимости ограничена функцией changeColor
       };
 
       export { Board };
