@@ -38,7 +38,7 @@ function apdateOutputTimer() {
         minutes = minutes + 1;
     }
     if (minutes < 10) {
-        minutes = '0' + minutes;
+        minutes = `0${minutes}`;
     }; 
     if (difference > 300) {
         minutes = `${parseInt(difference%60)}0`;

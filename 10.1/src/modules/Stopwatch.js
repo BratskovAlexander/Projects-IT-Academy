@@ -25,14 +25,14 @@ function apdateOutput() {
     let seconds = parseInt((difference / 100)%60);
     let minutes =  parseInt(difference / 6000);;
     if (hundredth < 10) {
-        hundredth = '0' + hundredth;
+        hundredth = `0${hundredth}`;
     };  
     if (seconds < 10) {
-        seconds = '0' + seconds;
+        seconds = `0${seconds}`;
     };
         
     if (minutes < 10) {
-        minutes = '0' + minutes;
+        minutes = `0${minutes}`;
         };       
     htmlElements.outputStopwatch.innerText = `${minutes}:${seconds}:${hundredth}`;
 };

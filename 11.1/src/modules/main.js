@@ -3,6 +3,7 @@ function onButtonClick() {
         confirm('Спасибо, вы ввели верный пароль');
     };
 };
+onButtonClick();
 
 function checkPassword() {
     let promtValue = prompt('Введите пароль');
