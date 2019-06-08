@@ -1,4 +1,4 @@
-import { MonitorLaptop } from './Monitor.js';
+import { MonitorLaptop } from './MonitorLaptop.js';
 
 function Laptop() {
     this.name = 'Acer';
