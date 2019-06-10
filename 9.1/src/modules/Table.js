@@ -70,8 +70,7 @@ Table.prototype.locate = function (yes) {
   if (yes) {
     console.log(`the ${Laptop.name} show movie!`);
   }
-  const table = new Table(); //её область видимости ограничена данным прототипом
-
+  const table = new Table(); //её область видимости ограничена методом locate
   table.checkWhoseTable("table for a student");
 };
 

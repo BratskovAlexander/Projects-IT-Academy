@@ -23,7 +23,7 @@ AirCondition.prototype.blow = function (temperatureColdAir, temperatureWarmAir) 
     this.temperatureColdAir = temperatureColdAir;
     this.temperatureWarmAir = temperatureWarmAir;
 
-    const nameAirCondition = new AirCondition();//её область видимости ограничена данным прототипом
+    const nameAirCondition = new AirCondition();//её область видимости ограничена методом blow
     nameAirCondition.checkNamecondition('philips');
 };
 

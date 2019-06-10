@@ -21,7 +21,7 @@ MonitorLaptop.prototype.showMovie = function (yes) {
   if (yes) {
     console.log('the laptop on the table,');
   };
-  const checkstateMonitorLaptop = new MonitorLaptop();//её область видимости ограничена данным прототипом
+  const checkstateMonitorLaptop = new MonitorLaptop();//её область видимости ограничена методом showMovie
   checkstateMonitorLaptop.checkStateMonitor('not slipping');
 };
 

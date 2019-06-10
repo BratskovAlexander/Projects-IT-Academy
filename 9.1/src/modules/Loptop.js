@@ -25,7 +25,7 @@ Laptop.prototype.open = function (yes) {
   if (yes) {
     console.log(`the laptop ${this.name} is opened,`);
   };
-  const nameLaptop = new Laptop();//её область видимости ограничена данным прототипом
+  const nameLaptop = new Laptop();//её область видимости ограничена методом open
   nameLaptop.checkQuantityButton(96);
 };
 

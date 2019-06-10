@@ -21,7 +21,7 @@ Projector.prototype.show = function (included, switchedOff) {
   this.included = included;
   this.switchedOff = switchedOff;
 
-  const stateProjector = new Projector();//её область видимости ограничена данным прототипом
+  const stateProjector = new Projector();//её область видимости ограничена методом show
   stateProjector.checkStateProjector(' not sleeping');
 };
 

@@ -27,7 +27,7 @@ function Room57(number, width, height, length) {
 
 Projector.prototype.changeStatusRoom = function (room) {
   this.room = room;
-  room = 'the room for rest';//её область видимости ограничена данным прототипом
+  room = 'the room for rest';//её область видимости ограничена методом changeStatusRoom
 };
 Room57.prototype.checkThelight = function () {
   this.lightOn = 'the light is on!';
