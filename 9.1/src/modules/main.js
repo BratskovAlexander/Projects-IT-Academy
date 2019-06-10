@@ -1,7 +1,7 @@
 import { Room57 } from "./Room57.js";
 
 
-const room57 = new Room57(57, 12, 3, 12);//её область видимости ограничена модулем Main.js для него она глобальная
+const room57 = new Room57(57, 12, 3, 12);//её область видимости ограничена модулем Main.js
 
 room57.table.locate(true);
 room57.table.checkWhoseTable('table for a teacher');

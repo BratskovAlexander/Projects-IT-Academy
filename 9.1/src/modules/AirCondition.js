@@ -3,26 +3,27 @@ function AirCondition(quantity) {
     this.color = 'white';
     this.changeColor = function () {
         this.color = 'gray';
-      };
-    
-    const checkTemperatureAir = function(degrees){
+        console.log(color);
+    };
+
+    const checkTemperatureAir = function (degrees) {
         console.log(`temperature air in room: ${degrees} degrees`);
-    };//её область видимости ограничена функцией AirCondition, для всего модуля это локальная переменная(константа)
+    };//её область видимости ограничена функцией-конструктором AirCondition
     checkTemperatureAir(20);
-    this.checkNamecondition = function(name) {
+    this.checkNamecondition = function (name) {
         console.log(`AirCondition ${name} made in China!`);
     };
 };
 
-AirCondition.prototype.changeColor = function(color) {
+AirCondition.prototype.changeColor = function (color) {
     this.color = color;
-    color = 'black';//её область видимости ограничена функцией changeColor,
-  };
-AirCondition.prototype.blow = function(temperatureColdAir, temperatureWarmAir) {
+    color = 'black';
+};
+AirCondition.prototype.blow = function (temperatureColdAir, temperatureWarmAir) {
     this.temperatureColdAir = temperatureColdAir;
     this.temperatureWarmAir = temperatureWarmAir;
 
-    const nameAirCondition = new AirCondition();//её область видимости ограничена функцией blow,
+    const nameAirCondition = new AirCondition();//её область видимости ограничена данным прототипом
     nameAirCondition.checkNamecondition('philips');
 };
 
