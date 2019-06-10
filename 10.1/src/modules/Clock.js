@@ -9,13 +9,13 @@ function addClockDefault() {
 addClockDefault();
 
 function Clock() {
-    const newTime = new Date ();
+    const newTime = new Date();
     const timeToString = newTime.toTimeString();
     const timeOfArray = timeToString.split(" ")[0];
     htmlElements.output.innerText = timeOfArray;
 };
 
-Clock.prototype.init = function() {
+Clock.prototype.init = function () {
     setInterval(Clock, 1000);
     Clock();
 };

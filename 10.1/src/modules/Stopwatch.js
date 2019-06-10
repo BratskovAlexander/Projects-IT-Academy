@@ -9,41 +9,41 @@ htmlElements.startBtn.addEventListener('click', onButtonClick);
 htmlElements.stopBtn.addEventListener('click', stopStopwatch);
 htmlElements.resetBtn.addEventListener('click', resetStopwatch);
 
-let startTime; 
+let startTime;
 let myInterval;
 let differenceInTime = 0;
 let lastDifferenceInTime = 0;
 
 function onButtonClick() {
-   startTime = new Date().getTime();
-   myInterval = setInterval(apdateOutput, 10);
-   htmlElements.startBtn.setAttribute('disabled', 'disabled');
+    startTime = new Date().getTime();
+    myInterval = setInterval(apdateOutput, 10);
+    htmlElements.startBtn.setAttribute('disabled', 'disabled');
 };
 
 function apdateOutput() {
-    
-    const difference = (new Date().getTime() - startTime)  / 10;
-    let hundredth = parseInt(difference%99); 
-    let seconds = parseInt((difference / 100)%60);
-    let minutes =  parseInt(difference / 6000);;
+
+    const difference = (new Date().getTime() - startTime) / 10;
+    let hundredth = parseInt(difference % 99);
+    let seconds = parseInt((difference / 100) % 60);
+    let minutes = parseInt(difference / 6000);;
     if (hundredth < 10) {
         hundredth = `0${hundredth}`;
-    };  
+    };
     if (seconds < 10) {
         seconds = `0${seconds}`;
     };
-        
+
     if (minutes < 10) {
         minutes = `0${minutes}`;
-        };       
+    };
     htmlElements.outputStopwatch.innerText = `${minutes}:${seconds}:${hundredth}`;
 };
 
-function Stopwatch() {};
+function Stopwatch() { };
 
- Stopwatch.prototype.init = function() {
+Stopwatch.prototype.init = function () {
     apdateOutput();
-  };
+};
 
 
 function stopStopwatch() {

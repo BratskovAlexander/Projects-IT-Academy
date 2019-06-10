@@ -9,14 +9,14 @@ htmlElements.startBtn.addEventListener('click', onButtonClick);
 htmlElements.stopBtn.addEventListener('click', stopTimer);
 htmlElements.resetBtn.addEventListener('click', resetTimer);
 
-let startTime; 
+let startTime;
 let myInterval;
 
 
 function onButtonClick() {
-   startTime = new Date().getTime();
-   myInterval = setInterval(apdateOutputTimer, 1000);
-   htmlElements.startBtn.setAttribute('disabled', 'disabled');
+    startTime = new Date().getTime();
+    myInterval = setInterval(apdateOutputTimer, 1000);
+    htmlElements.startBtn.setAttribute('disabled', 'disabled');
 };
 
 let minutesDefault = 4;
@@ -24,35 +24,35 @@ let secondsDefault = 60;
 
 
 function apdateOutputTimer() {
-    
+
     const difference = (new Date().getTime() - startTime) / 1000;
-    let seconds = secondsDefault - parseInt(difference%60); 
-    let minutes = minutesDefault - parseInt((difference / 60)%60);
+    let seconds = secondsDefault - parseInt(difference % 60);
+    let minutes = minutesDefault - parseInt((difference / 60) % 60);
     let hours = '00';
 
     if (seconds < 10) {
         seconds = `0${seconds}`;
-    };  
-    if (parseInt(difference%60) === 0) {
-        seconds = `${parseInt(difference%60)}0`;
+    };
+    if (parseInt(difference % 60) === 0) {
+        seconds = `${parseInt(difference % 60)}0`;
         minutes = minutes + 1;
     }
     if (minutes < 10) {
         minutes = `0${minutes}`;
-    }; 
+    };
     if (difference > 300) {
-        minutes = `${parseInt(difference%60)}0`;
+        minutes = `${parseInt(difference % 60)}0`;
         stopTimer();
     }
-     
+
     htmlElements.outputTimer.innerText = `${hours}:${minutes}:${seconds}`;
 };
 
 
 
-function Timer() {};
+function Timer() { };
 
-Timer.prototype.init = function() {
+Timer.prototype.init = function () {
     Timer();
 };
 
