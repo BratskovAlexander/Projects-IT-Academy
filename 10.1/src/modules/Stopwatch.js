@@ -4,28 +4,44 @@ htmlElements.stopBtn = document.querySelector('.container .buttons button.stop')
 htmlElements.resetBtn = document.querySelector('.container .buttons button.reset');
 htmlElements.outputStopwatch = document.querySelector('.container div[data-mode="stopwatch"] .output');
 
+function Stopwatch() { };
 
-htmlElements.startBtn.addEventListener('click', onButtonClick);
-htmlElements.stopBtn.addEventListener('click', stopStopwatch);
-htmlElements.resetBtn.addEventListener('click', resetStopwatch);
+Stopwatch.prototype.init = function () {
+    htmlElements.startBtn.addEventListener('click', onButtonClickToStart);
+    htmlElements.stopBtn.addEventListener('click', stopStopwatch);
+    htmlElements.resetBtn.addEventListener('click', resetStopwatch);
+};
 
 let startTime;
 let myInterval;
 let differenceInTime = 0;
 let lastDifferenceInTime = 0;
 
-function onButtonClick() {
+function onButtonClickToStart() {
     startTime = new Date().getTime();
     myInterval = setInterval(apdateOutput, 10);
     htmlElements.startBtn.setAttribute('disabled', 'disabled');
 };
 
-function apdateOutput() {
+function stopStopwatch() {
+    htmlElements.startBtn.removeAttribute('disabled');
+    clearInterval(myInterval);
+    lastDifferenceInTime = differenceInTime;
+};
 
-    const difference = (new Date().getTime() - startTime) / 10;
-    let hundredth = parseInt(difference % 99);
-    let seconds = parseInt((difference / 100) % 60);
-    let minutes = parseInt(difference / 6000);;
+function resetStopwatch() {
+    lastDifferenceInTime = 0;
+    startTime = new Date().getTime();
+    clearInterval(myInterval);
+    htmlElements.outputStopwatch.innerText = '00:00:00';
+};
+
+function apdateOutput() {
+    const difference = new Date().getTime() - startTime;
+    differenceInTime = difference / 10 + lastDifferenceInTime;
+    let hundredth = parseInt(differenceInTime % 99);
+    let seconds = parseInt((differenceInTime / 100) % 60);
+    let minutes = parseInt(differenceInTime / 6000);;
     if (hundredth < 10) {
         hundredth = `0${hundredth}`;
     };
@@ -38,25 +54,5 @@ function apdateOutput() {
     };
     htmlElements.outputStopwatch.innerText = `${minutes}:${seconds}:${hundredth}`;
 };
-
-function Stopwatch() { };
-
-Stopwatch.prototype.init = function () {
-    apdateOutput();
-};
-
-
-function stopStopwatch() {
-    clearInterval(myInterval);
-    htmlElements.startBtn.removeAttribute('disabled');
-};
-
-function resetStopwatch() {
-    stopStopwatch();
-    htmlElements.outputStopwatch.innerText = '00:00:00';
-}
-
-
-
 
 export { Stopwatch };
