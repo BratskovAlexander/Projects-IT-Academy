@@ -1,4 +1,7 @@
+import { ClassHelper } from './ClassHelper.js';
+
 const htmlElements = {};
+htmlElements.btn = document.querySelector('.container .buttons')
 htmlElements.startBtn = document.querySelector('.container .buttons button.start');
 htmlElements.stopBtn = document.querySelector('.container .buttons button.stop');
 htmlElements.resetBtn = document.querySelector('.container .buttons button.reset');
@@ -18,18 +21,22 @@ let differenceInTime = 0;
 let lastDifferenceInTime = 0;
 
 function onButtonClickToStart() {
+    ClassHelper.removeClass('disabled', htmlElements.btn);
+    ClassHelper.addClass('disable', htmlElements.startBtn)
     startTime = new Date().getTime();
     myInterval = setInterval(apdateOutput, 10);
-    htmlElements.startBtn.setAttribute('disabled', 'disabled');
 };
 
 function stopStopwatch() {
-    htmlElements.startBtn.removeAttribute('disabled');
+    ClassHelper.removeClass('disabled', htmlElements.btn);
+    ClassHelper.addClass('disable', htmlElements.stopBtn)
     clearInterval(myInterval);
     lastDifferenceInTime = differenceInTime;
 };
 
 function resetStopwatch() {
+    ClassHelper.removeClass('disabled', htmlElements.btn);
+    ClassHelper.addClass('disable', htmlElements.resetBtn)
     lastDifferenceInTime = 0;
     startTime = new Date().getTime();
     clearInterval(myInterval);
