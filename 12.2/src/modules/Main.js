@@ -7,11 +7,13 @@ const clock = new Clock();
 const stopwatch = new StopwatchTimer("stopwatch", 0);
 const timer = new StopwatchTimer("timer", 300);
 
+if (stopwatch === undefined || timer === undefined) {
+} else {
+}
+
 function init() {
   clock.init();
   tabs.init();
-  // stopwatch.init();
-  // timer.init();
 }
 
 init();

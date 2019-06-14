@@ -1,11 +1,10 @@
 import { ClassHelper } from "./ClassHelper.js";
 
-function StopwatchTimer(initMode, initSeconds) {
+function StopwatchTimer(mode, initSeconds) {
   let startTime;
   let myInterval;
   let differenceInTime = 0;
   let lastDifferenceInTime = initSeconds;
-  let mode = initMode;
 
   const htmlElements = {};
 
