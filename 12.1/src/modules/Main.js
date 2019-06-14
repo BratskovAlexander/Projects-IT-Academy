@@ -1,7 +1,7 @@
 let array = [];
 
 function objectCopy(object) {
-  if (array.indexOf(object) >= -1) {
+  if (array.indexOf(object) > -1) {
     console.log("This object is circular reference");
   }
 
@@ -25,7 +25,7 @@ function objectCopy(object) {
 
 const myObject = {
   name: "Alex",
-  //   age: 26,
+  age: 26,
   myParameters: {
     myGrowth: 176,
     myWeight: {
@@ -35,14 +35,14 @@ const myObject = {
     fatBurningProcess() {
       console.log(`at peak form my weight: ${this.average}`);
     }
-  }
+  },
   showAge() {
-    console.log(`my age ${age}`);
+    console.log(`my age ${this.age}`);
   }
-}
+};
 
 const myObject2 = objectCopy(myObject);
-(myObject2.age = 26), 5;
+myObject2.age = 26;
 myObject2.myParameters.myGrowth = 175;
 
 console.log(myObject2);
