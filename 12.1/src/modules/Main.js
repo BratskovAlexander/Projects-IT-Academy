@@ -25,7 +25,7 @@ function objectCopy(object) {
 
 const myObject = {
   name: "Alex",
-  age: 26,
+  //   age: 26,
   myParameters: {
     myGrowth: 176,
     myWeight: {
@@ -35,11 +35,11 @@ const myObject = {
     fatBurningProcess() {
       console.log(`at peak form my weight: ${this.average}`);
     }
-  },
+  }
   showAge() {
     console.log(`my age ${age}`);
   }
-};
+}
 
 const myObject2 = objectCopy(myObject);
 (myObject2.age = 26), 5;
