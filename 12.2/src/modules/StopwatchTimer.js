@@ -56,6 +56,9 @@ function StopwatchTimer(initMode, initSeconds) {
         break;
       case "timer":
         differenceInTime = lastDifferenceInTime - Math.round(difference / 1000);
+        if (differenceInTime <= 0) {
+          stopStopwatch();
+        }
         break;
     }
 
