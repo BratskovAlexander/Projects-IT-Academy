@@ -2,14 +2,18 @@ let array = [];
 
 function objectCopy(object) {
   if (array.indexOf(object) > -1) {
-    console.log("This object is circular reference");
+    return "This object is circular reference";
   }
 
   array.push(object);
 
   const clon = {};
 
-  if (object === null || object === undefined || object === "object") {
+  if (
+    object === null ||
+    typeof object === undefined ||
+    typeof object !== "object"
+  ) {
     return object;
   }
 
@@ -19,8 +23,8 @@ function objectCopy(object) {
     } else {
       clon[key] = object[key];
     }
-    return clon;
   }
+  return clon;
 }
 
 const myObject = {
@@ -42,8 +46,6 @@ const myObject = {
 };
 
 const myObject2 = objectCopy(myObject);
-myObject2.age = 26;
-myObject2.myParameters.myGrowth = 175;
 
 console.log(myObject2);
 console.log(array);
