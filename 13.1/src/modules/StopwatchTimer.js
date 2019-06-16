@@ -54,7 +54,8 @@ function StopwatchTimer(mode, initSeconds) {
       case "timer":
         differenceInTime = lastDifferenceInTime - Math.round(difference / 1000);
         if (differenceInTime <= 0) {
-          stopStopwatch();
+          clearInterval(myInterval);
+          ClassHelper.addClass("disabled", [htmlElements.stopBtn]);
         }
         break;
     }
