@@ -1,7 +1,7 @@
 import { StopwatchTimer } from "./StopwatchTimer.js";
 
 function Timer() {
-  StopwatchTimer.call(this, "timer", 300);
+  StopwatchTimer.call(this, "timer", 5);
 }
 
 Timer.prototype = Object.create(StopwatchTimer.prototype);
