@@ -56,11 +56,11 @@ function StopwatchTimer(mode, initSeconds) {
       case "timer":
         differenceInTime = lastDifferenceInTime - Math.round(difference / 1000);
         if (differenceInTime <= 0) {
-          stopStopwatch();
+          clearInterval(myInterval);
+          ClassHelper.addClass("disabled", [htmlElements.stopBtn]);
         }
         break;
     }
-
     let seconds = parseInt(differenceInTime % 60);
     let minutes = parseInt((differenceInTime / 60) % 60);
     let hours = parseInt(differenceInTime / 3600);
