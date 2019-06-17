@@ -7,7 +7,6 @@ const clock = new Clock();
 const stopwatch = new StopwatchTimer("stopwatch", 0);
 const timer = new StopwatchTimer("timer", 300);
 
-console.log(timer, stopwatch);
 function init() {
   clock.init();
   tabs.init();
