@@ -62,31 +62,29 @@ function deleteHidden() {
   htmlElements.tabsTimer.classList.add("hidden");
 }
 
-function Tabs(mode) {
-  switch (mode) {
-    case "clock":
-      deleteSelected();
-      deleteHidden();
-      setSelected(htmlElements.clock);
-      htmlElements.tabsClock.classList.remove("hidden");
-      break;
-    case "stopwatch":
-      deleteSelected();
-      deleteHidden();
-      setSelected(htmlElements.stopwatch);
-      htmlElements.tabsStopwatch.classList.remove("hidden");
-      break;
-    case "timer":
-      deleteSelected();
-      deleteHidden();
-      setSelected(htmlElements.timer);
-      htmlElements.tabsTimer.classList.remove("hidden");
-      break;
+class Tabs {
+  constructor(mode) {
+    switch (mode) {
+      case "clock":
+        deleteSelected();
+        deleteHidden();
+        setSelected(htmlElements.clock);
+        htmlElements.tabsClock.classList.remove("hidden");
+        break;
+      case "stopwatch":
+        deleteSelected();
+        deleteHidden();
+        setSelected(htmlElements.stopwatch);
+        htmlElements.tabsStopwatch.classList.remove("hidden");
+        break;
+      case "timer":
+        deleteSelected();
+        deleteHidden();
+        setSelected(htmlElements.timer);
+        htmlElements.tabsTimer.classList.remove("hidden");
+        break;
+    }
   }
 }
-
-Tabs.prototype.init = function() {
-  Tabs();
-};
 
 export { Tabs };
