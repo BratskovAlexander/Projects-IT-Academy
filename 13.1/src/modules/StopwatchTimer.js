@@ -6,7 +6,7 @@ function StopwatchTimer(mode, initSeconds) {
   let differenceInTime = 0;
   let lastDifferenceInTime = initSeconds;
 
-  const htmlElements = (this.htmlElements = {
+  const htmlElements = {
     btn: document.querySelectorAll(
       `.container div[data-mode=${mode}] .buttons button`
     ),
@@ -20,7 +20,7 @@ function StopwatchTimer(mode, initSeconds) {
       `.container div[data-mode=${mode}] .buttons button.reset`
     ),
     output: document.querySelector(`.container div[data-mode=${mode}] .output`)
-  });
+  };
 
   function onButtonClickToStart() {
     ClassHelper.removeClass("disabled", htmlElements.btn);
