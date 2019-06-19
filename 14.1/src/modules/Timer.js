@@ -9,6 +9,6 @@ class Timer {
   }
 }
 
-Timer.prototype = Object.create(StopwatchTimer.prototype);
+//class Timer extends StopwatchTimer {}
 
 export { Timer };

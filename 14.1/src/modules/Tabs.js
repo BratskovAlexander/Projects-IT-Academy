@@ -28,16 +28,6 @@ htmlElements.tabsTimer = document.querySelector(
   '.container .tabs div[data-mode="timer"]'
 );
 
-htmlElements.clock.addEventListener("click", function() {
-  Tabs(this.dataset.mode);
-});
-htmlElements.stopwatch.addEventListener("click", function() {
-  Tabs(this.dataset.mode);
-});
-htmlElements.timer.addEventListener("click", function() {
-  Tabs(this.dataset.mode);
-});
-
 const arrayTabs = [
   htmlElements.clock,
   htmlElements.stopwatch,
@@ -62,28 +52,42 @@ function deleteHidden() {
   htmlElements.tabsTimer.classList.add("hidden");
 }
 
+function choiceTabs(mode) {
+  switch (mode) {
+    case "clock":
+      deleteSelected();
+      deleteHidden();
+      setSelected(htmlElements.clock);
+      htmlElements.tabsClock.classList.remove("hidden");
+      break;
+    case "stopwatch":
+      deleteSelected();
+      deleteHidden();
+      setSelected(htmlElements.stopwatch);
+      htmlElements.tabsStopwatch.classList.remove("hidden");
+      break;
+    case "timer":
+      deleteSelected();
+      deleteHidden();
+      setSelected(htmlElements.timer);
+      htmlElements.tabsTimer.classList.remove("hidden");
+      break;
+  }
+}
+
+htmlElements.clock.addEventListener("click", function() {
+  choiceTabs(this.dataset.mode);
+});
+htmlElements.stopwatch.addEventListener("click", function() {
+  choiceTabs(this.dataset.mode);
+});
+htmlElements.timer.addEventListener("click", function() {
+  choiceTabs(this.dataset.mode);
+});
+
 class Tabs {
-  constructor(mode) {
-    switch (mode) {
-      case "clock":
-        deleteSelected();
-        deleteHidden();
-        setSelected(htmlElements.clock);
-        htmlElements.tabsClock.classList.remove("hidden");
-        break;
-      case "stopwatch":
-        deleteSelected();
-        deleteHidden();
-        setSelected(htmlElements.stopwatch);
-        htmlElements.tabsStopwatch.classList.remove("hidden");
-        break;
-      case "timer":
-        deleteSelected();
-        deleteHidden();
-        setSelected(htmlElements.timer);
-        htmlElements.tabsTimer.classList.remove("hidden");
-        break;
-    }
+  constructor() {
+    choiceTabs();
   }
 }
 
