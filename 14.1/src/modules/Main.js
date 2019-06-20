@@ -3,10 +3,10 @@ import { Clock } from "./Clock.js";
 import { Timer } from "./Timer.js";
 import { Stopwatch } from "./Stopwatch.js";
 
-const tabs = new Tabs("clock");
+const tabs = new Tabs();
 const clock = new Clock();
-// const timer = new Timer();
-//sconst stopwatch = new Stopwatch();
+const timer = new Timer();
+const stopwatch = new Stopwatch();
 
-//timer.showInfo();
-//import { StopwatchTimer } from "./StopwatchTimer.js";stopwatch.showInfo();
+timer.showInfo();
+stopwatch.showInfo();
