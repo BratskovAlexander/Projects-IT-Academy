@@ -86,4 +86,9 @@ class StopwatchTimer {
   }
 }
 
+class ClassHelper extends StopwatchTimer {
+  constructor() {}
+  super() {}
+}
+
 export { StopwatchTimer };
