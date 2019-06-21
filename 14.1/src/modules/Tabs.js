@@ -28,6 +28,16 @@ htmlElements.tabsTimer = document.querySelector(
   '.container .tabs div[data-mode="timer"]'
 );
 
+htmlElements.clock.addEventListener("click", function() {
+  choiceTabs(this.dataset.mode);
+});
+htmlElements.stopwatch.addEventListener("click", function() {
+  choiceTabs(this.dataset.mode);
+});
+htmlElements.timer.addEventListener("click", function() {
+  choiceTabs(this.dataset.mode);
+});
+
 const arrayTabs = [
   htmlElements.clock,
   htmlElements.stopwatch,
@@ -75,19 +85,9 @@ function choiceTabs(mode) {
   }
 }
 
-htmlElements.clock.addEventListener("click", function() {
-  choiceTabs(this.dataset.mode);
-});
-htmlElements.stopwatch.addEventListener("click", function() {
-  choiceTabs(this.dataset.mode);
-});
-htmlElements.timer.addEventListener("click", function() {
-  choiceTabs(this.dataset.mode);
-});
-
 class Tabs {
-  constructor() {
-    choiceTabs();
+  conctructor(mode) {
+    choiceTabs(mode);
   }
 }
 
