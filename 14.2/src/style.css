@@ -1,0 +1,9 @@
+body {
+  background-color: #f8f8f8;
+}
+
+img {
+  width: 50%;
+  height: 70%;
+  float: left;
+}
