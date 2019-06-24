@@ -8,9 +8,7 @@ class StopwatchTimer {
     let lastDifferenceInTime = initSeconds;
 
     const htmlElements = {
-      btn: document.querySelectorAll(
-        `.container div[data-mode=${mode}] .buttons button`
-      ),
+      btn: document.querySelectorAll(`.container div[data-mode=${mode}] .buttons button`),
       startBtn: document.querySelector(
         `.container div[data-mode=${mode}] .buttons button.start`
       ),
@@ -86,9 +84,5 @@ class StopwatchTimer {
   }
 }
 
-class ClassHelper extends StopwatchTimer {
-  constructor() {}
-  super() {}
-}
 
 export { StopwatchTimer };

@@ -1,13 +1,13 @@
-class Timer {
-  constructor() {}
+import { StopwatchTimer } from "./StopwatchTimer.js";
+
+class Timer extends StopwatchTimer {
+  constructor() {
+    super("timer", 300)
+  }
+
   showInfo() {
     console.log(this);
   }
-}
-
-class StopwatchTimer extends Timer {
-  constructor() {}
-  super() {}
 }
 
 export { Timer };
