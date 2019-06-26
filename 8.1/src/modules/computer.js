@@ -1,6 +1,6 @@
-import { CrystalCPU } from "./CrystalCPU.js";
-import { CPU } from "./CPU.js";
-import { Keyboard } from "./Keyboard.js";
+import { CrystalCPU } from "../modules/CrystalCPU.js";
+import { CPU } from "../modules/CPU.js";
+import { Keyboard } from "../modules/keyboard.js";
 
 function Computer(monitor, systemUnit, CPU) {
   this.monitor = monitor;
@@ -9,11 +9,11 @@ function Computer(monitor, systemUnit, CPU) {
 };
 
 Computer.prototype.dataInput = function (Keyboard, scanner, webcam, mouse, touchScreen) {
- this.Keyboard = Keyboard;
- this.scanner = scanner;
- this.webcam = webcam;
- this.mouse = mouse;
- this.touchScreen = touchScreen;
+  this.Keyboard = Keyboard;
+  this.scanner = scanner;
+  this.webcam = webcam;
+  this.mouse = mouse;
+  this.touchScreen = touchScreen;
 };
 Computer.prototype.informationOutput = function (monitor, printer, plotter, speakersAndHeadphones) {
   this.monitor = monitor;

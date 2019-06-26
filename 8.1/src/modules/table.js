@@ -1,7 +1,7 @@
-import { CrystalCPU } from "./CrystalCPU.js";
-import { CPU } from "./CPU.js";
-import { Keyboard } from "./Keyboard.js";
-import { Computer } from "./Computer.js";
+import { CrystalCPU } from "../modules/CrystalCPU.js";
+import { CPU } from "../modules/CPU.js";
+import { Keyboard } from "../modules/Keyboard.js";
+import { Computer } from "../modules/Computer.js";
 
 function Table(widthTable, heightTable, lengthTable, table, onTheTable) {
   this.widthTable = widthTable;
@@ -10,7 +10,7 @@ function Table(widthTable, heightTable, lengthTable, table, onTheTable) {
   this.table = table;
   this.onTheTable = onTheTable;
 };
- Table.prototype.displacemenOftTable = function (right, left, forward, back) {
+Table.prototype.displacemenOftTable = function (right, left, forward, back) {
   this.right = 'movement to the right';
   this.left = 'movement to the left';
   this.forward = 'forward movement';

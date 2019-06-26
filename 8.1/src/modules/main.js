@@ -1,9 +1,9 @@
 import { CrystalCPU } from "../modules/CrystalCPU.js";
 import { CPU } from "../modules/CPU.js";
-import { Keyboard } from "../modules/keyboard";
-import { Computer } from "../modules/Computer.js";
+import { Keyboard } from "../modules/keyboard.js";
+import { Computer } from "../modules/computer.js";
 import { Table } from "../modules/table.js";
-import { TheCabinet } from "../modules/TheCabinet.js";
+import { TheCabinet } from "../modules/thecabinet.js";
 import { TheCabinetNumber57 } from "../modules/TheCabinetNumber57.js";
 
 const compositionCrystal = new CrystalCPU('Crystal is made of silicon(!==silicone)');

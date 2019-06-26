@@ -1,7 +1,7 @@
-import { Tabs } from './Tabs.js';
-import { Clock } from './Clock.js';
-import { Stopwatch } from './Stopwatch.js';
-import { Timer } from './Timer.js';
+import { Tabs } from '../modules/Tabs.js';
+import { Clock } from '../modules/Clock.js';
+import { Stopwatch } from '../modules/Stopwatch.js';
+import { Timer } from '../modules/Timer.js';
 
 const tabs = new Tabs();
 const clock = new Clock();
