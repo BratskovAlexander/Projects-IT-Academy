@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>2.1 2.2 2.3 3.3</title>
+  <link rel="stylesheet" href="../src/style.css" />
+</head>
+
+<body>
+  <!-- Часть один -->
+  <h1> Part 1</h1>
+  <input type="text" class="first-input" placeholder="введите название цвета">
+  <button class="first-button" onclick="changeColor()">Update</button>
+  <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank" class="src-colors">Выбор цветов</a>
+
+  <!-- Часть два -->
+  <h2> Part 2</h2>
+  <select class="second-part">
+    <option selected="selected">Выберите цвет</option>
+    <option>yellow</option>
+    <option>green</option>
+    <option>magenta</option>
+  </select>
+  <button class="second-button" onclick="changeColor2()">Update</button>
+  <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank" class="src-colors">Выбор цветов</a>
+
+  <!-- Часть три -->
+  <h2> Part 3</h2>
+  <select class="third-part">
+    <option selected="selected">Выберите цвет</option>
+    <option>yellow</option>
+    <option>green</option>
+    <option>magenta</option>
+  </select>
+  <button class="third-button" onclick="changeColor3()">Update</button>
+  <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank" class="src-colors">Выбор цветов</a>
+
+  <!-- Часть четыре don't work-->
+  <h2> Part 4 </h2>
+  <input type="color" class="fourth-part">
+  <button class="fourth-button" onclick="changeColor4()">Update </button>
+  <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank" class="src-colors">Выбор цветов</a>
+
+  <!-- Часть пять -->
+  <h2> Part 5</h2>
+  <select class="fifth-part" onchange="showMessage(this)">
+    <option selected="selected">Выберите цвет</option>
+    <option>orange</option>
+    <option>cyan</option>
+    <option>greenyellow</option>
+  </select>
+  <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank" class="src-colors">Выбор цветов</a>
+
+  <script src="../src/modules/main.js"></script>
+</body>
+
+</html>

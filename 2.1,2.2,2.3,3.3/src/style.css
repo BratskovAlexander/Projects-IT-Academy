@@ -1,0 +1,12 @@
+.yellow{
+  background-color: yellow !important;
+}
+.green{
+  background-color: green !important;
+}
+.magenta{
+  background-color: magenta !important;
+}
+html body{
+  background-color: var(--changeColorThroughType);
+}
