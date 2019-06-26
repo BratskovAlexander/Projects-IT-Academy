@@ -1,0 +1,22 @@
+h1{
+  text-align: center;
+}
+.calc{
+  margin: 15px auto;
+  width: 250px;
+  height: 126px;
+  border: 2px solid gray;
+}
+input{
+  width: 246px;
+}
+input:hover{
+  background-color: rgb(206, 206, 206);
+}
+.flex-but{
+  display: flex;
+  flex-direction: column;
+}
+button:hover{
+  transform: scale(1.1)
+}
