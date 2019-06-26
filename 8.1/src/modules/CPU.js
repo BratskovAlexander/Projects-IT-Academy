@@ -1,5 +1,5 @@
-import { CrystalCPU } from "./CrystalCPU.js";
-  
+import { CrystalCPU } from "../modules/CrystalCPU.js";
+
 function CPU(cap, crystal, specialTextoliteSubstrate, compositionCrystalCPU) {
   this.cap = cap;
   this.crystal = crystal;
