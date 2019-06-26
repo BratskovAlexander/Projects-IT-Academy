@@ -5,6 +5,7 @@ function StopwatchTimer(mode, initSeconds) {
   let myInterval;
   let differenceInTime = 0;
   let lastDifferenceInTime = initSeconds;
+  const self = this;
 
   const htmlElements = {
     btn: document.querySelectorAll(
@@ -47,18 +48,13 @@ function StopwatchTimer(mode, initSeconds) {
 
   function apdateOutput() {
     const difference = new Date().getTime() - startTime;
-    switch (mode) {
-      case "stopwatch":
-        differenceInTime = Math.round(difference / 1000) + lastDifferenceInTime;
-        break;
-      case "timer":
-        differenceInTime = lastDifferenceInTime - Math.round(difference / 1000);
-        if (differenceInTime <= 0) {
-          clearInterval(myInterval);
-          ClassHelper.addClass("disabled", [htmlElements.stopBtn]);
-        }
-        break;
+    differenceInTime = self.setStopWatchTimer(difference, lastDifferenceInTime);
+    if (differenceInTime <= 0) {
+      clearInterval(myInterval);
+      ClassHelper.addClass("disabled", [htmlElements.stopBtn]);
     }
+
+
 
     let seconds = parseInt(differenceInTime % 60);
     let minutes = parseInt((differenceInTime / 60) % 60);

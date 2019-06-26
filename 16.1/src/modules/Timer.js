@@ -6,6 +6,11 @@ function Timer() {
 
 Timer.prototype = Object.create(StopwatchTimer.prototype);
 
+Timer.prototype.setStopWatchTimer = function (difference, lastDifferenceInTime) {
+  return lastDifferenceInTime - Math.round(difference / 1000);
+
+}
+
 Timer.prototype.showInfo = function () {
   console.log(this);
 };
