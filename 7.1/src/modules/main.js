@@ -1,45 +1,30 @@
-let name = prompt("Введите ваше имя");
-let surName = prompt("Введите ваше Фамилию");
-let patronymic = prompt("Введите ваше Отчество");
-let age = prompt("Введите ваш возраст");
-let gender = confirm("Ваш пол мужской");
+setInterval(onIntervalNextTick, 1000);
 
-if ((name === null) || (name === "")) {
-    name = prompt("Введите ваше имя ещё раз");
-}
-if ((surName === null) || (surName === "")) {
-    surName = prompt("Введите вашу фамилию ещё раз");
-}
-if ((patronymic === null) || (patronymic === "")) {
-    patronymic = prompt("Введите ваше отчество ещё раз");
-}
-fullName = "Ваше ФИО: " + name + " " + surName + " " + patronymic;
+const htmlElements = {};
+htmlElements.startBtn = document.querySelector('.container .buttons button.start');
+htmlElements.stopBtn = document.querySelector('.container .buttons button.start');
+htmlElements.resetBtn = document.querySelector('.container .buttons button.start');
+htmlElements.clock = document.querySelector('.container .links .clock');
+htmlElements.stopwatch = document.querySelector('.container .links .stopwatch');
+htmlElements.timer = document.querySelector('.container .links .timer');
+htmlElements.output = document.querySelector('.container .output');
 
+function onIntervalNextTick() {
+    const newTime = new Date();
+    const timeToString = newTime.toTimeString();
+    const timeOfArray = timeToString.split(" ")[0];
+    htmlElements.output.innerText = timeOfArray;
+};
+onIntervalNextTick();
 
-
-if ((age >= 120) || (age === null) || (isNaN(age)) || age === "") {
-    age = prompt("Введите возраст коректнее");
-}
-if ((age >= 120) || (age === null) || (isNaN(age))) {
-    age = prompt("Введите возраст коректнее");
-}
-if (((gender === true) && (age <= 60)) || ((gender === false) && (age <= 55))) {
-    genderPensia = "Вы на пенсии: Нет";
-}
-else {
-    genderPensia = "Вы на пенсии: Да";
-}
-if (gender === true) {
-    gender = "Ваш пол: мужской";
-}
-else {
-    gender = "Ваш пол: женский";
-}
+htmlElements.clock.addEventListener("click", setSelected);
+htmlElements.stopwatch.addEventListener("click", setSelected);
+htmlElements.timer.addEventListener("click", setSelected);
 
 
-ageInDay = "Ваш возраст в днях: " + ((age * 365) + (parseInt(age / 4))) + "\n";
-ageThrough = "Через 5  вам будет: " + (parseInt(age) + 5) + "\n";
-age = "Ваш возраст в годах: " + age + "\n" + ageInDay + ageThrough;
-
-alert(fullName + "\n" + age + gender + "\n" + genderPensia);
-
+function setSelected() {
+    htmlElements.clock.classList.remove("selected");
+    htmlElements.stopwatch.classList.remove("selected");
+    htmlElements.timer.classList.remove("selected");
+    this.classList.add("selected");
+};
