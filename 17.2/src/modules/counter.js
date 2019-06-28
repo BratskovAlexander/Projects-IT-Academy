@@ -21,5 +21,3 @@ const objCounter = getCounterObject();
 objCounter.increase(321);
 objCounter.decrease(123);
 objCounter.show();
-
-//export { getCounterObject };
