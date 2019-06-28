@@ -29,22 +29,30 @@ function StopwatchTimer(mode, initSeconds) {
     ClassHelper.removeClass("disabled", htmlElements.btn);
     ClassHelper.addClass("disabled", [htmlElements.startBtn]);
     startTime = new Date().getTime();
-    myTimeout = setTimeout(apdateOutput, 1000);
+    let tick = () => {
+      apdateOutput();
+      myTimeout = setTimeout(tick, 1000);
+    };
+    myTimeout = setTimeout(() => {
+      tick();
+    }, 1000);
   }
 
   function stopStopwatch() {
+    clearTimeout(myTimeout);
     ClassHelper.removeClass("disabled", htmlElements.btn);
     ClassHelper.addClass("disabled", [htmlElements.stopBtn]);
-    clearTimeout(myTimeout);
     lastDifferenceInTime = differenceInTime;
   }
 
   function resetStopwatch() {
+    clearTimeout(myTimeout);
+
     ClassHelper.removeClass("disabled", htmlElements.btn);
     ClassHelper.addClass("disabled", [htmlElements.resetBtn]);
     lastDifferenceInTime = initSeconds;
     startTime = new Date().getTime();
-    clearTimeout(myTimeout);
+    apdateOutput();
   }
 
   function apdateOutput() {
@@ -54,9 +62,6 @@ function StopwatchTimer(mode, initSeconds) {
       clearTimeout(myTimeout);
       ClassHelper.addClass("disabled", [htmlElements.stopBtn]);
     }
-
-
-
     let seconds = parseInt(differenceInTime % 60);
     let minutes = parseInt((differenceInTime / 60) % 60);
     let hours = parseInt(differenceInTime / 3600);
@@ -70,7 +75,6 @@ function StopwatchTimer(mode, initSeconds) {
       hours = `0${hours}`;
     }
     htmlElements.output.innerText = `${hours}:${minutes}:${seconds}`;
-    setTimeout(apdateOutput, 1000);
   }
 
   htmlElements.startBtn.addEventListener("click", onButtonClickToStart);
