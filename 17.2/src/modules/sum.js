@@ -7,7 +7,7 @@ function sum(value) {
     }
 
     sum2.showResult = function () {
-        console.log(result);
+        console.log(`sum: ${result}`);
     }
 
     sum2(value)
