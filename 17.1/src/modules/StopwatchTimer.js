@@ -47,7 +47,6 @@ function StopwatchTimer(mode, initSeconds) {
 
   function resetStopwatch() {
     clearTimeout(myTimeout);
-
     ClassHelper.removeClass("disabled", htmlElements.btn);
     ClassHelper.addClass("disabled", [htmlElements.resetBtn]);
     lastDifferenceInTime = initSeconds;
@@ -59,8 +58,9 @@ function StopwatchTimer(mode, initSeconds) {
     const difference = new Date().getTime() - startTime;
     differenceInTime = self.setStopWatchTimer(difference, lastDifferenceInTime);
     if (differenceInTime <= 0) {
-      clearTimeout(myTimeout);
+      htmlElements.output.innerText = '00:00:00';
       ClassHelper.addClass("disabled", [htmlElements.stopBtn]);
+      return;
     }
     let seconds = parseInt(differenceInTime % 60);
     let minutes = parseInt((differenceInTime / 60) % 60);
