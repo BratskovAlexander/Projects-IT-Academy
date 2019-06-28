@@ -6,7 +6,7 @@ function sum(value) {
         return sum2;
     }
 
-    sum2.prototype.showResult = function () {
+    sum2.showResult = function () {
         console.log(result);
     }
 
