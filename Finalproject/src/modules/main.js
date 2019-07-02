@@ -1,51 +1,43 @@
-let nowDate = new Date();
-let today = nowDate.getDate();
-let currentMonth = nowDate.getMonth();
-let currentYear = nowDate.getFullYear();
-let temp = new Date(currentYear, currentMonth + 1, 0)
-let lastDay = temp.getDate();
-
+let nowDate = new Date(); //текущее время и данные даты
+let today = nowDate.getDate();  //текущая дата
+let currentMonth = nowDate.getMonth(); //цифра текущего месяца
+let currentYear = nowDate.getFullYear(); //текущий год
+let firstDay = new Date(currentYear, currentMonth, 1);//первый день
+let temp = new Date(currentYear, currentMonth + 1, 0); //даные последнего дня месяца
+let lastDay = temp.getDate(); //последняя дата месяца
+let tr = document.createElement('tr');
+let td = document.createElement('td');
 
 function createTable() {
-    let d = new Date(currentYear, currentMonth, 1);
-    let t = d.getDate() - 1;
-
-    if (t < 0) {
-        t = 6;
-    }
-    console.log(t);
+    let t = firstDay.getDate() - 1; //Чтобы певый день был начинался правильно, а не со следующего
     let a = 0;
-    while (d.getMonth() == currentMonth) {
 
+    while (firstDay.getMonth() == currentMonth) {
         let tr = document.createElement('tr');
         let i = 0;
 
         while (i < 7) {
-
             let td = document.createElement('td');
             if (a == 0) {
                 if (i < t) {
                     td.innerHTML = '';
                 } else {
-                    td.innerHTML = d.getDate();
-                    d.setDate(d.getDate() + 1);
-
+                    td.innerHTML = firstDay.getDate();
+                    firstDay.setDate(firstDay.getDate() + 1);
+                    if (firstDay.getDate() == lastDay) {
+                        td.innerHTML = '';
+                        break;
+                    }
                 }
             } else {
-
-                td.innerHTML = d.getDate();
-                d.setDate(d.getDate() + 1);
-
+                td.innerHTML = firstDay.getDate();
+                firstDay.setDate(firstDay.getDate() + 1);
             }
-
             tr.appendChild(td);
             i++;
-            if (d.getDate() == lastDay) {
-                break;
-            }
         }
-
         document.getElementById('table').appendChild(tr);
+        a++;
     }
 }
 createTable();
