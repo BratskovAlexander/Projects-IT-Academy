@@ -1,33 +1,51 @@
 let nowDate = new Date();
-
 let today = nowDate.getDate();
 let currentMonth = nowDate.getMonth();
 let currentYear = nowDate.getFullYear();
-let temp = new Date(currentYear, currentMonth, 1, 0)
+let temp = new Date(currentYear, currentMonth + 1, 0)
 let lastDay = temp.getDate();
-
-console.log(lastDay);
-
 
 
 function createTable() {
-    let arrayDate = [];
-    for (let i = 1; i <= 30; i++) {
-        nowDate.setDate(i);
-        let td = document.createElement('td');
-        td.innerHTML = nowDate.getDate();
-        arr.push(td);
+    let d = new Date(currentYear, currentMonth, 1);
+    let t = d.getDate() - 1;
+
+    if (t < 0) {
+        t = 6;
     }
-    for (let i = 1; i < arrayDate.length; i++) {
+    console.log(t);
+    let a = 0;
+    while (d.getMonth() == currentMonth) {
+
         let tr = document.createElement('tr');
-        for (let j = 0; j < 7; j++) {
-            tr.appendChild(arrayDate[j])
+        let i = 0;
+
+        while (i < 7) {
+
+            let td = document.createElement('td');
+            if (a == 0) {
+                if (i < t) {
+                    td.innerHTML = '';
+                } else {
+                    td.innerHTML = d.getDate();
+                    d.setDate(d.getDate() + 1);
+
+                }
+            } else {
+
+                td.innerHTML = d.getDate();
+                d.setDate(d.getDate() + 1);
+
+            }
+
+            tr.appendChild(td);
+            i++;
+            if (d.getDate() == lastDay) {
+                break;
+            }
         }
-        table.appendChild(tr);
+
+        document.getElementById('table').appendChild(tr);
     }
 }
-
-
-
-
-console.log();
+createTable();
