@@ -1,49 +1,7 @@
-// let nowDate = new Date(); //текущее время и данные даты
-// let today = nowDate.getDate();  //текущая дата
-// let currentMonth = nowDate.getMonth(); //цифра текущего месяца
-// let currentYear = nowDate.getFullYear(); //текущий год
-// let firstDay = new Date(currentYear, currentMonth, 1);//первый день
-// let temp = new Date(currentYear, currentMonth + 1, 0); //даные последнего дня месяца
-// let lastDay = temp.getDate(); //последняя дата месяца
-// let tr = document.createElement('tr');
-// let td = document.createElement('td');
+import { Calendar} from './calender.js';
 
-// function createTable() {
-//     let t = firstDay.getDate() - 1; //Чтобы певый день был начинался правильно, а не со следующего
-//     let a = 0;
+const calendar = new Calendar();
 
-//     while (firstDay.getMonth() == currentMonth) {
-//         let tr = document.createElement('tr');
-//         let i = 0;
-
-//         while (i < 7) {
-//             let td = document.createElement('td');
-//             if (a == 0) {
-//                 if (i < t) {
-//                     td.innerHTML = '';
-//                 } else {
-//                     td.innerHTML = firstDay.getDate();
-//                     firstDay.setDate(firstDay.getDate() + 1);
-
-//                 }
-//             } else {
-//                 td.innerHTML = firstDay.getDate();
-//                 firstDay.setDate(firstDay.getDate() + 1);
-
-//             }
-
-//             tr.appendChild(td);
-//             i++;
-//         }
-//         if (firstDay.getDate() == lastDay) {
-//             firstDay.setDate(firstDay.getDate() + 1);
-//             return;
-//         }
-//         document.getElementById('table').appendChild(tr);
-//         a++;
-//     }
-// }
-// createTable();
 
 // function Calendar2(id, year, month) {
 //     let lastDay = new Date(year, month + 1, 0).getDate(); //последний день месяца
