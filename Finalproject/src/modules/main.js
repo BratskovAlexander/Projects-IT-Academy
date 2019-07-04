@@ -1,6 +1,6 @@
 import { Calendar} from './calender.js';
 
-const calendar = new Calendar();
+const calendar = new Calendar("table", 2019, 9);
 
 
 // function Calendar2(id, year, month) {
@@ -28,6 +28,7 @@ const calendar = new Calendar();
 //             calendar += '<tr>';
 //         }
 //     }
+
 //     for (var i = 0; i < 7; i++) calendar += '<td>&nbsp;';
 //     document.querySelector('#' + id + ' tbody').innerHTML = calendar;
 //     document.querySelector('#' + id + ' thead td:nth-child(2)').innerHTML = arrayMonth[lastDayInfo.getMonth()] + ' ' + lastDayInfo.getFullYear();
@@ -46,3 +47,140 @@ const calendar = new Calendar();
 // document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function () {
 //     Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) + 1);
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const pForYear = document.createElement("p"); //абзац для года
+// const pForMonth = document.createElement("p"); //абзац для месяца
+
+// const arrayMonth = [
+//   "January",
+//   "February",
+//   "March",
+//   "April",
+//   "May",
+//   "June",
+//   "Jule",
+//   "August",
+//   "September",
+//   "October",
+//   "November",
+//   "December"
+// ]; //Массив для вывода названия месяца
+// //debugger;
+// function Calendar(id, year, month) {
+//   let lastDayMonth = new Date(year, month + 1, 0).getDate(); //Последний день меясца
+//   const lastDayInfo = new Date(year, month, lastDayMonth); // ифно последнего дня месяца
+//   let firstDayInfo = new Date(
+//     lastDayInfo.getFullYear(),
+//     lastDayInfo.getMonth(),
+//     1
+//   );
+//   let firstDay = firstDayInfo.getDay(); //первый день месяца
+
+//   let tr = document.createElement("tr"); //Создали пустую
+//   if (firstDay != 0) {
+//     for (let i = 1; i < firstDay; i++) {
+//       let td = document.createElement("td"); //Создали пустую ячейку
+//       td.innerHTML = "";
+//       tr.appendChild(td); //добавляем ячейку в строчку
+//     }
+//   } else {
+//     for (let i = 0; i < 6; i++) {
+//       let td = document.createElement("td"); //Создали пустую ячейку
+//       td.innerHTML = "";
+//       tr.appendChild(td); //добавляем ячейку в строчку
+//     }
+//   }
+
+//   while (firstDayInfo.getDate() < lastDayMonth) {
+//     // цикл для месяца
+//     let dayOfWeek = 0;
+
+//     // while (dayOfWeek < 7) {
+//       //цикл для недели
+//       const td = document.createElement("td"); //Создали пустую ячейку
+//       td.innerHTML = firstDayInfo.getDate(); //кладем в ячейку число
+//       let tr = document.createElement("tr"); //Создали пустую
+//       tr.appendChild(td); //добавляем ячейку в строчку
+
+//       console.log(tr);
+//       console.log(td);
+//       if (firstDayInfo.getDate() == lastDayMonth) {
+//         //Условие чтобы остановить цикл, если закончиться месяц
+//         break;
+//       }
+//       firstDayInfo.setDate(firstDayInfo.getDate() + 1); //Добавляем следующую дату
+
+//       dayOfWeek++; //добавляем день в неделю
+
+//       document.querySelector("#table").appendChild(tr); //Добавляем неделю в таблицу
+//       console.log(tr);
+//     // }
+//     document.querySelector("#table").appendChild(tr); //Добавляем неделю в таблицу
+//   }
+// }
+// Calendar("table", 2019, 8);
+
+// const year = (document
+//     .getElementById("header-calender")
+//     .appendChild(pForYear).innerHTML = `Now Year: ${year}`); //Вывели текущий год
+
+//   const month = (document
+//     .getElementById("header-calender")
+//     .appendChild(pForMonth).innerHTML = `Now Month: ${arrayMonth[month]}`); //Вывели текущий месяц
+
+//   const nowMonthInHeadTable = (document.querySelector(
+//     "thead tr td[colspan]"
+//   ).innerHTML = arrayMonth[month]); //Вывели текущий месяц в шапку таблицы
+
+// function changeNextMonth() {
+//   nowMonth = new Date(nowYear, nowMonth, 1);
+//   console.log(nowMonth);
+// }
+// changeNextMonth();
+
+// const htmlElements = {
+//   btnBackMonth: document.querySelector("#table thead tr td"),
+//   btnNextMonth: document.querySelector("#table thead tr td:nth-child(3)")
+// };
+
+// htmlElements.btnBackMonth.addEventListener("click", function() {
+//   alert("back Month");
+// });
+// htmlElements.btnNextMonth.addEventListener("click", function() {
+//   alert("next Month");
+// });
+
+// console.log();
+
+//export { Calendar };
