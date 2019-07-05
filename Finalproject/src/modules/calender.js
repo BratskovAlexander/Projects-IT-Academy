@@ -18,97 +18,58 @@ const arrayMonth = [
 
 function Calendar(id, year, month) {
   let dayFirst = new Date(year, month, 1);
+  let getMonthNow = dayFirst.getMonth();
   let getFirstDay = dayFirst.getDate();
   let getFirstDayIfNotMonday = dayFirst.getDate() - 1;
 
   let lastDayMonth = new Date(year, month + 1, 0).getDate(); //Последний день меясца
   const lastDayInfo = new Date(year, month, lastDayMonth); // ифно последнего дня месяца
-  let firstDayMonth = new Date(lastDayInfo.getFullYear(), lastDayInfo.getMonth(), 1).getDay(); //первый день месяца
-  let firstDayInfo = new Date(lastDayInfo.getFullYear(), lastDayInfo.getMonth(), 1);
+  let firstDayMonth = new Date(
+    lastDayInfo.getFullYear(),
+    lastDayInfo.getMonth(),
+    1
+  ).getDay(); //первый день месяца
+  let firstDayInfo = new Date(
+    lastDayInfo.getFullYear(),
+    lastDayInfo.getMonth(),
+    1
+  );
 
-console.log(firstDayMonth);
-    
-    let countWeek = 0;
- while(dayFirst.getDate() != lastDayMonth) {
-    if(firstDayMonth < 0) {
-        firstDayMonth = 6;
-    }
-    let tr = document.createElement('tr');
+  console.log(month);
+
+  let countWeek = 0;
+  while ((dayFirst.getDate() != lastDayMonth) && (dayFirst.getMonth() == month)) {
+    // if(firstDayMonth < 0) {
+    //     firstDayMonth = 6;
+    // }
+    let tr = document.createElement("tr");
     let dayWeek = 0;
-     while(dayWeek < 7) {
-        let td = document.createElement('td');
+    while (dayWeek < 7) {
+      let td = document.createElement("td");
 
-if (countWeek == 0) {
-     if(dayWeek < firstDayMonth){
-        td.innerHTML = ('');
-     }else{
-     td.innerHTML = dayFirst.getDate();
-     dayFirst.setDate(dayFirst.getDate() + 1); 
-     }
-}else{
-    td.innerHTML = dayFirst.getDate();
-     dayFirst.setDate(dayFirst.getDate() + 1); 
-}
- 
-
-     if (dayFirst.getDate() == lastDayMonth) {
+      if (countWeek == 0) {
+        if (dayWeek < firstDayMonth - 1) {
+          td.innerHTML = "";
+          tr.appendChild(td);
+        } else {
+          td.innerHTML = dayFirst.getDate();
+          tr.appendChild(td);
+          dayFirst.setDate(dayFirst.getDate() + 1);
+        }
+      } else {
+        td.innerHTML = dayFirst.getDate();
         tr.appendChild(td);
-        document.getElementById("table").appendChild(tr);     
-      break;
-}
-tr.appendChild(td);
-     dayWeek++;
+        dayFirst.setDate(dayFirst.getDate() + 1);
+      }
 
-     console.log(lastDayMonth);
-
-
-
-
-     
-     }
-     document.getElementById("table").appendChild(tr);
+      if (dayFirst.getMonth() != month) {
+        break;
+      }
+      dayWeek++;
+    }
+    document.getElementById("table").appendChild(tr);
     countWeek++;
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }
 
   //   let lastDayMonth = new Date(year, month + 1, 0).getDate(); //Последний день меясца
   //   const lastDayInfo = new Date(year, month, lastDayMonth); // ифно последнего дня месяца
@@ -204,11 +165,11 @@ tr.appendChild(td);
 
   const monthNow = (document
     .getElementById("header-calender")
-    .appendChild(pForMonth).innerHTML = `Now Month: ${arrayMonth[month - 1]}`); //Вывели текущий месяц
+    .appendChild(pForMonth).innerHTML = `Now Month: ${arrayMonth[month]}`); //Вывели текущий месяц
 
   const nowMonthInHeadTable = (document.querySelector(
     "thead tr td[colspan]"
-  ).innerHTML = arrayMonth[month - 1]); //Вывели текущий месяц в шапку таблицы
+  ).innerHTML = arrayMonth[month]); //Вывели текущий месяц в шапку таблицы
 }
 
 export { Calendar };

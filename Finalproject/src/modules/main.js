@@ -1,6 +1,6 @@
 import { Calendar} from './calender.js';
 
-const calendar = new Calendar("table", 2019, 9);
+const calendar = new Calendar("table", 2019, 6);
 
 
 // function Calendar2(id, year, month) {
