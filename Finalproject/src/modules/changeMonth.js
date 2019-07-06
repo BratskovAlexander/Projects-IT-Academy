@@ -11,7 +11,7 @@ function ChangeMonth() {
     while (element.lastChild) {
       element.removeChild(element.lastChild);
     }
-  
+  console.log(month);
     Calendar(
       "table",
       document.querySelector("p").dataset.year,
