@@ -26,6 +26,10 @@ function Calendar(id, year, month) {
     1
   ).getDay(); //первый день месяца
 
+ if (firstDayMonth == 0) {
+  firstDayMonth = 7;
+ }
+
   let countWeek = 0;
   while (dayFirst.getDate() != lastDayMonth && dayFirst.getMonth() == month) {
     let tr = document.createElement("tr");
@@ -34,6 +38,7 @@ function Calendar(id, year, month) {
       let td = document.createElement("td");
 
       if (countWeek == 0) {
+
         if (dayWeek < firstDayMonth - 1) {
           td.innerHTML = "";
           tr.appendChild(td);
@@ -57,10 +62,20 @@ function Calendar(id, year, month) {
     countWeek++;
   }
 
+
+ 
+
   const yearNow = (document
     .getElementById("header-calender")
     .appendChild(pForYear).innerHTML = `Now Year: ${year}`); //Вывели текущий год
 
+    if (month == 12) {
+      month = 0;
+    }
+    if ( month == -12) {
+      month = 12;
+    }
+ console.log(arrayMonth[month])
   const monthNow = (document
     .getElementById("header-calender")
     .appendChild(pForMonth).innerHTML = `Now Month: ${arrayMonth[month]}`); //Вывели текущий месяц
@@ -74,35 +89,5 @@ function Calendar(id, year, month) {
     "p:nth-child(2)"
   ).dataset.month = lastDayInfo.getMonth();
 }
-
-const htmlElements = {
-  btnPrevious: document.querySelector("thead tr th"),
-  btnNext: document.querySelector("thead tr th:last-child")
-};
-
-htmlElements.btnPrevious.addEventListener("click", function() {
-  let element = document.getElementById("body-table");
-  while (element.lastChild) {
-    element.removeChild(element.lastChild);
-  }
-
-  Calendar(
-    "table",
-    document.querySelector("p").dataset.year,
-    parseInt(document.querySelector("p:nth-child(2)").dataset.month) - 1
-  );
-});
-htmlElements.btnNext.addEventListener("click", function() {
-  let element = document.getElementById("body-table");
-  while (element.lastChild) {
-    element.removeChild(element.lastChild);
-  }
-  
-  Calendar(
-    "table",
-    document.querySelector("p").dataset.year,
-    parseInt(document.querySelector("p:nth-child(2)").dataset.month) + 1
-  );
-});
 
 export { Calendar };
