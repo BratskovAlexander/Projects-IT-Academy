@@ -72,10 +72,10 @@ function Calendar(id, year, month) {
     if (month == 12) {
       month = 0;
     }
-    if ( month == -12) {
-      month = 12;
+    if ( month == -1) {
+      month = 11;
     }
- console.log(arrayMonth[month])
+
   const monthNow = (document
     .getElementById("header-calender")
     .appendChild(pForMonth).innerHTML = `Now Month: ${arrayMonth[month]}`); //Вывели текущий месяц
