@@ -53,7 +53,7 @@ function Calendar(id, year, month) {
       }
       dayWeek++;
     }
-    document.getElementById("table").appendChild(tr);
+    document.getElementById("body-table").appendChild(tr);
     countWeek++;
   }
 
@@ -81,6 +81,11 @@ const htmlElements = {
 };
 
 htmlElements.btnPrevious.addEventListener("click", function() {
+  let element = document.getElementById("body-table");
+  while (element.lastChild) {
+    element.removeChild(element.lastChild);
+  }
+
   Calendar(
     "table",
     document.querySelector("p").dataset.year,
@@ -88,6 +93,11 @@ htmlElements.btnPrevious.addEventListener("click", function() {
   );
 });
 htmlElements.btnNext.addEventListener("click", function() {
+  let element = document.getElementById("body-table");
+  while (element.lastChild) {
+    element.removeChild(element.lastChild);
+  }
+  
   Calendar(
     "table",
     document.querySelector("p").dataset.year,
