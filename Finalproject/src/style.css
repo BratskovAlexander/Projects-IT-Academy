@@ -23,3 +23,15 @@ td{
 ul li{
   list-style-type: none;
 }
+
+.none{
+  display: none;
+}
+
+.button-meeting{
+  display: flex;
+  margin: 5px auto;
+  width: 30%;
+  padding: 5px;
+}
+
