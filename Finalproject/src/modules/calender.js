@@ -1,3 +1,5 @@
+import { AddBtnWithTime } from './getListTime.js';
+
 const pForYear = document.createElement("p"); //абзац для года
 const pForMonth = document.createElement("p"); //абзац для месяца
 
@@ -36,6 +38,7 @@ function Calendar(id, year, month) {
     let dayWeek = 0;
     while (dayWeek < 7) {
       let td = document.createElement("td");
+      td.addEventListener("click", AddBtnWithTime);
 
       if (countWeek == 0) {
 
