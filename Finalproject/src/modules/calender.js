@@ -62,7 +62,7 @@ function Calendar(id, year, month) {
       dayWeek++;
     }
 
-    console.log(dayNow);
+    //console.log(dayNow);
     document.getElementById("body-table").appendChild(tr);
     countWeek++;
   }
