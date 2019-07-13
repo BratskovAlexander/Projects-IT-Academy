@@ -24,10 +24,6 @@ ul li{
   list-style-type: none;
 }
 
-.none{
-  display: none;
-}
-
 .button-meeting{
   display: flex;
   margin: 5px auto;
@@ -35,3 +31,19 @@ ul li{
   padding: 5px;
 }
 
+.form-meeting{
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+}
+
+.form-input, .text-area, .btn-form{
+  margin: 10px auto;
+}
+
+
+
+
+.none{
+  display: none;
+}
