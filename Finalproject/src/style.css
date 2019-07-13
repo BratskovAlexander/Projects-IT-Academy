@@ -41,6 +41,12 @@ ul li{
   margin: 10px auto;
 }
 
+.text-area{
+  min-width: 10%;
+  max-width: 20%;
+  min-height: 10px;
+  max-height: 30%;
+}
 
 
 

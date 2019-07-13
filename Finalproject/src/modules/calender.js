@@ -46,12 +46,12 @@ function Calendar(id, year, month) {
           td.innerHTML = "";
           tr.appendChild(td);
         } else {
-          td.innerHTML = dayFirst.getDate();
+          let dayNow = td.innerHTML = dayFirst.getDate();
           tr.appendChild(td);
           dayFirst.setDate(dayFirst.getDate() + 1);
         }
       } else {
-        td.innerHTML = dayFirst.getDate();
+        let dayNow = td.innerHTML = dayFirst.getDate();
         tr.appendChild(td);
         dayFirst.setDate(dayFirst.getDate() + 1);
       }
@@ -61,6 +61,8 @@ function Calendar(id, year, month) {
       }
       dayWeek++;
     }
+
+    console.log(dayNow);
     document.getElementById("body-table").appendChild(tr);
     countWeek++;
   }
