@@ -1,12 +1,21 @@
-function addForm() {
-  const getBtnMeeting = document.getElementById("btns-meeting");
-  getBtnMeeting.classList.add("none");
-  getBtnMeeting.innerHTML = "";
-  const form = document.querySelector(".form-meeting");
-  form.classList.remove("none");
-}
+import "./calender.js";
+import { addForm } from './addForm.js';
 
-function AddBtnWithTime() {
+function AddBtnWithTime(visibleBtnMeeting) {
+
+this.visibleBtnMeeting = visibleBtnMeeting;
+visibleBtnMeeting = {
+  selectedYear: document.querySelector("#header-calender > p:nth-child(1)").dataset.year,
+  selectedMonth: document.querySelector("#header-calender > p:nth-child(2)").dataset.month,
+  selectedDate: this.innerText,
+ };
+
+
+  let nowDate = document.querySelector(".fullName p:nth-child(2)");
+ nowDate.innerText = (`Выбранная дата: ${visibleBtnMeeting.selectedDate}.${Number(visibleBtnMeeting.selectedMonth) + 1}.${visibleBtnMeeting.selectedYear}`);
+ //nowDate.appendChild();
+
+
   const infoAboutMe = document.querySelector(
     ".page-info-about div.infoAboutMe"
   );
@@ -14,7 +23,7 @@ function AddBtnWithTime() {
 
   const getBtnMeeting = document.getElementById("btns-meeting");
   getBtnMeeting.classList.remove("none");
-  getBtnMeeting.innerHTML = "";
+  getBtnMeeting.innerText = "";
 
   const form = document.querySelector(".form-meeting");
   form.classList.add("none");
@@ -30,7 +39,11 @@ function AddBtnWithTime() {
     btnMeeting.innerText = `${timeToBtn}.00 - ${timeToBtn + 1}.00`;
     getBtnMeeting.appendChild(btnMeeting);
     timeToBtn++;
+  
   });
+
+
+
 }
 
 export { AddBtnWithTime };

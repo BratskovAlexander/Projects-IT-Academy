@@ -43,15 +43,15 @@ function Calendar(id, year, month) {
       if (countWeek == 0) {
 
         if (dayWeek < firstDayMonth - 1) {
-          td.innerHTML = "";
+          td.innerText = "";
           tr.appendChild(td);
         } else {
-          let dayNow = td.innerHTML = dayFirst.getDate();
+          td.innerText = dayFirst.getDate();
           tr.appendChild(td);
           dayFirst.setDate(dayFirst.getDate() + 1);
         }
       } else {
-        let dayNow = td.innerHTML = dayFirst.getDate();
+      td.innerText = dayFirst.getDate();
         tr.appendChild(td);
         dayFirst.setDate(dayFirst.getDate() + 1);
       }
@@ -59,10 +59,11 @@ function Calendar(id, year, month) {
       if (dayFirst.getMonth() != month) {
         break;
       }
+    
       dayWeek++;
     }
 
-    //console.log(dayNow);
+    
     document.getElementById("body-table").appendChild(tr);
     countWeek++;
   }

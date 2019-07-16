@@ -50,6 +50,11 @@ ul li{
 
 
 
+
 .none{
   display: none;
+}
+
+.activ{
+  display: block;
 }
