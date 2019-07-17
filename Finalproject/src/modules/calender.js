@@ -27,17 +27,18 @@ function Calendar(id, year, month) {
     lastDayInfo.getMonth(),
     1
   ).getDay(); //первый день месяца
-  const yearNow = (document
-    .getElementById("header-calender")
-    .appendChild(pForYear).innerHTML = `Now Year: ${year}`); //Вывели текущий год
-
+  
   if (month == 12) {
     month = 0;
+    year = Number(year) + 1;
   }
   if (month == -1) {
     month = 11;
+    year = Number(year) - 1;
   }
-
+const yearNow = (document
+    .getElementById("header-calender")
+    .appendChild(pForYear).innerHTML = `Now Year: ${year}`); //Вывели текущий год
   const monthNow = (document
     .getElementById("header-calender")
     .appendChild(pForMonth).innerHTML = `Now Month: ${arrayMonth[month]}`); //Вывели текущий месяц
@@ -76,34 +77,6 @@ function Calendar(id, year, month) {
     document.getElementById("body-table").appendChild(tr);
     countWeek++;
   }
-  // while (dayWeek < 7) {
-  //   let td = document.createElement("td");
-  //   td.addEventListener("click", AddBtnWithTime);
-
-  //   if (countWeek == 0) {
-
-  //     if (dayWeek < firstDayMonth - 1) {
-  //       td.innerText = "";
-  //       tr.appendChild(td);
-  //     } else {
-  //       td.innerText = dayFirst.getDate();
-  //       tr.appendChild(td);
-  //       dayFirst.setDate(dayFirst.getDate() + 1);
-  //     }
-  //   } else {
-  //   td.innerText = dayFirst.getDate();
-  //     tr.appendChild(td);
-  //     dayFirst.setDate(dayFirst.getDate() + 1);
-  //   }
-
-  //   if (dayFirst.getMonth() != month) {
-  //     break;
-  //   }
-
-  //   dayWeek++;
-  // }
-
-  // }
 }
 
 export { Calendar };

@@ -1,5 +1,6 @@
 import { Calendar } from "./calender.js";
-import { AddBtnWithTime } from "./getListTime.js";
+import "./getListTime.js";
+import { addForm } from './addForm.js';
 
 const btnForm = document.querySelector(".btn-form");
 btnForm.addEventListener("click", addObjectMeeting);
@@ -15,11 +16,7 @@ function addObjectMeeting() {
 
   arrayObjectsForm.push(meetingForm);
   localStorage["arrayObjectsForm"] = JSON.stringify(arrayObjectsForm);
-
-  let a = JSON.parse(localStorage["arrayObjectsForm"]);
-  console.log(a);
-
-  alert("Meeting successfully added");
+  
 }
 
 export { addObjectMeeting };

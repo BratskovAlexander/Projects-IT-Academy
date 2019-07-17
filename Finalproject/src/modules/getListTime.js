@@ -1,20 +1,37 @@
 import "./calender.js";
 import { addForm } from "./addForm.js";
 
-function AddBtnWithTime(visibleBtnMeeting) {
-  this.visibleBtnMeeting = visibleBtnMeeting;
-  visibleBtnMeeting = {
-    selectedYear: document.querySelector("#header-calender > p:nth-child(1)")
-      .dataset.year,
-    selectedMonth: document.querySelector("#header-calender > p:nth-child(2)")
-      .dataset.month,
-    selectedDate: this.innerText
-  };
+const arrayMonth = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "Jule",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+
+
+function AddBtnWithTime() {
+  document.querySelector(".page-info-about div.infoAboutMe").innerHTML = ('');
+
+  const visibleBtnMeeting = [];
+    visibleBtnMeeting.selectedYear = document.querySelector("#header-calender > p:nth-child(1)").dataset.year,
+    visibleBtnMeeting.selectedMonth = document.querySelector("#header-calender > p:nth-child(2)").dataset.month,
+    visibleBtnMeeting.selectedDate = this.innerText
+
+  // localStorage["visibleBtnMeeting"] = JSON.stringify(visibleBtnMeeting.selectedMonth);
+  localStorage["visibleBtnMeeting"] = JSON.stringify(visibleBtnMeeting.selectedDate);
 
   let nowDate = document.querySelector(".fullName p:nth-child(2)");
   nowDate.innerText = `Выбранная дата: ${
     visibleBtnMeeting.selectedDate
-  }.${Number(visibleBtnMeeting.selectedMonth) + 1}.${
+  } ${arrayMonth[visibleBtnMeeting.selectedMonth]} ${
     visibleBtnMeeting.selectedYear
   }`;
 
@@ -33,16 +50,8 @@ function AddBtnWithTime(visibleBtnMeeting) {
   let arrayBtnTime = [];
   let timeToBtn = 9;
 
-  // arrayBtnTime.forEach(() => {
-  //   const btnMeeting = document.createElement("button");
-  //   btnMeeting.addEventListener("click", addForm);
-  //   btnMeeting.classList.add("button-meeting");
-  //   btnMeeting.innerText = `${timeToBtn}.00 - ${timeToBtn + 1}.00`;
-  //   getBtnMeeting.appendChild(btnMeeting);
-  //   timeToBtn++;
-  // });
-
   for (let i = 0; i < 8; i++) {
+
     const btnMeeting = document.createElement("button");
     btnMeeting.addEventListener("click", addForm);
     btnMeeting.classList.add("button-meeting");
@@ -50,14 +59,16 @@ function AddBtnWithTime(visibleBtnMeeting) {
     getBtnMeeting.appendChild(btnMeeting);
     arrayBtnTime[i] = btnMeeting;
     timeToBtn++;
+
+    let arrayBtnMeetingFromStorage = JSON.parse(localStorage["arrayBtnMeeting"]);
+    let visibleBtnMeetingFromStorage = JSON.parse(localStorage["visibleBtnMeeting"]);
+    console.log(visibleBtnMeetingFromStorage);
+
+    if (arrayBtnMeetingFromStorage !== null) {
+      const form = document.querySelector(".button-meeting");
+      form.classList.add("none");
   }
 
-  let b = JSON.parse(localStorage["arrayBtnMeeting"]);
-  console.log(b);
-  if (b === this.innerText) {
-    const form = document.querySelector(".button-meeting");
-    form.classList.add("none");
-    console.log(form);
   }
 }
 
