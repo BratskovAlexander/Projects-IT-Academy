@@ -1,13 +1,18 @@
 import { Calendar } from "./calender.js";
-import "./getListTime.js";
-import { addForm } from './addForm.js';
+import { AddBtnWithTime, arrayObjectsForm, meetingForm, dateClick } from "./getListTime.js";
+import { addForm, tiemClick } from './addForm.js';
 
 const btnForm = document.querySelector(".btn-form");
-btnForm.addEventListener("click", addObjectMeeting);
+btnForm.addEventListener("click", (elem) => {
+  addObjectMeeting();
+  elem.preventDefault();
+  localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm);
+});
+
+arrayObjectsForm;
 
 function addObjectMeeting() {
-  let arrayObjectsForm = [];
-  let meetingForm = {};
+
   meetingForm.nameUser = document.querySelector(".name").value;
   meetingForm.email = document.querySelector(".email").value;
   meetingForm.tel = document.querySelector(".tel").value;
@@ -15,8 +20,15 @@ function addObjectMeeting() {
   meetingForm.textArea = document.querySelector(".text-area").value;
 
   arrayObjectsForm.push(meetingForm);
-  localStorage["arrayObjectsForm"] = JSON.stringify(arrayObjectsForm);
+
+  if (meetingForm.date === dateClick && meetingForm.time === tiemClick) {
+    alert('you win');    
+  } 
+  console.log(meetingForm.date, meetingForm.time, dateClick, tiemClick);
+
+
   
 }
+
 
 export { addObjectMeeting };
