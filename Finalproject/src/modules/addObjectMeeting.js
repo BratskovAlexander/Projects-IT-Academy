@@ -24,16 +24,9 @@ function addObjectMeeting() {
 
   arrayObjectsForm.push(meetingForm);
 
-  console.log(arrayObjectsForm);
-
   if (meetingForm.date === dateClick && meetingForm.time === tiemClick) {
     alert('you win');    
   } 
-  console.log(meetingForm.date, meetingForm.time, dateClick, tiemClick);
-
-
-  
 }
-
 
 export { addObjectMeeting };

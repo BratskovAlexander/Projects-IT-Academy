@@ -1,8 +1,8 @@
-td{
+td {
   text-align: center;
 }
 
-.main-page{
+.main-page {
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -10,51 +10,57 @@ td{
   margin-top: 10%;
   text-align: center;
   border: 3px solid gray;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   font-size: 20px;
 }
 
-.page-calender{
+.page-calender {
   width: 50%;
   border-right: 1px solid gray;
 }
 
-ul li{
+ul li {
   list-style-type: none;
 }
 
-.button-meeting{
+.button-meeting1,
+.button-meeting2,
+.button-meeting3,
+.button-meeting4,
+.button-meeting5,
+.button-meeting6,
+.button-meeting7,
+.button-meeting8 {
   display: flex;
   margin: 5px auto;
   width: 35%;
   padding: 5px;
 }
 
-.form-meeting{
+.form-meeting {
   display: flex;
   flex-direction: column;
   margin: 10px auto;
 }
 
-.form-input, .text-area, .btn-form{
+.form-input,
+.text-area,
+.btn-form {
   margin: 10px auto;
 }
 
-.text-area{
+.text-area {
   min-width: 10%;
   max-width: 20%;
   min-height: 10px;
   max-height: 30%;
 }
 
-
-
-
-.none{
+.none {
   display: none;
 }
 
-.activ{
+.activ {
   display: block;
 }
