@@ -6,7 +6,10 @@ const btnForm = document.querySelector(".btn-form");
 btnForm.addEventListener("click", (elem) => {
   addObjectMeeting();
   elem.preventDefault();
+  localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm.time);
+  localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm.date);   
   localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm);
+  console.log(JSON.stringify(meetingForm));
 });
 
 arrayObjectsForm;
@@ -20,6 +23,8 @@ function addObjectMeeting() {
   meetingForm.textArea = document.querySelector(".text-area").value;
 
   arrayObjectsForm.push(meetingForm);
+
+  console.log(arrayObjectsForm);
 
   if (meetingForm.date === dateClick && meetingForm.time === tiemClick) {
     alert('you win');    

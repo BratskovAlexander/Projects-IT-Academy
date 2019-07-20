@@ -10,7 +10,7 @@ function addForm() {
   meetingForm.time = this.innerText;
 
   
-  localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm.time);
+  // localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm.time);
   const getBtnMeeting = document.getElementById("btns-meeting");
   getBtnMeeting.classList.add("none");
   getBtnMeeting.innerHTML = "";
