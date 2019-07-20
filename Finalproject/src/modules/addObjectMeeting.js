@@ -9,7 +9,7 @@ btnForm.addEventListener("click", (elem) => {
   localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm.time);
   localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm.date);   
   localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm);
-  console.log(JSON.stringify(meetingForm));
+  
 });
 
 arrayObjectsForm;
