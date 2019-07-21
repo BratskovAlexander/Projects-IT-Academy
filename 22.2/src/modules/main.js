@@ -1,8 +1,7 @@
-function changeLink(link) {
-
-    this.link = document.querySelector('a');
-    link.preventDefault();
-    link.addEventListener("click", () => {
-        window.location.href = 'http://google.com';
-    })
+function changeLink() {
+  document.querySelector("a.myLink").addEventListener("click", elem => {
+    elem.preventDefault();
+    window.location.href = "http://google.com";
+  });
 }
+changeLink();
