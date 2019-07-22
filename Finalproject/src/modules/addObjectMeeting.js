@@ -1,38 +1,32 @@
-import { Calendar } from "./calender.js";
-import {
-  AddBtnWithTime,
-  arrayObjectsForm,
-  meetingForm,
-  dateClick
-} from "./getListTime.js";
-import { addForm, tiemClick } from "./addForm.js";
+// import { Calendar } from "./calender.js";
+import { AddBtnWithTime, dateClick } from "./getListTime.js";
+import { addForm, timeClick } from "./addForm.js";
 
-const btnForm = document.querySelector(".btn-form");
-btnForm.addEventListener("click", elem => {
-  addObjectMeeting();
-  elem.preventDefault();
-  localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm.time);
-  localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm.date);
-  localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm);
-});
-
-arrayObjectsForm;
-
-function addObjectMeeting() {
-  //let meetingForm = {};
+  const btnForm = document.querySelector(".btn-form");
+  btnForm.addEventListener("click", elem => {
+    let dateTimeClick = dateClick + "/" + timeClick;
+  let meetingForm = {};
   meetingForm.nameUser = document.querySelector(".name").value;
   meetingForm.email = document.querySelector(".email").value;
   meetingForm.tel = document.querySelector(".tel").value;
   meetingForm.select = document.querySelector(".select").value;
   meetingForm.textArea = document.querySelector(".text-area").value;
+  elem.preventDefault();
 
-  arrayObjectsForm.push(meetingForm);
+  JSON.stringify(meetingForm);
+  localStorage.setItem(
+    JSON.stringify(dateTimeClick),
+    JSON.stringify(meetingForm)
+  );
 
-  console.log(arrayObjectsForm);
+  let returnObj = JSON.parse(
+    localStorage.getItem(JSON.stringify(dateTimeClick))
+  );
+  console.log(returnObj);
+});
 
-  if (meetingForm.date === dateClick && meetingForm.time === tiemClick) {
-    alert("you win");
-  }
+function addObjectMeeting() {
+ 
 }
 
 export { addObjectMeeting };

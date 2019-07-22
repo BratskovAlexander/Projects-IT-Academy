@@ -1,16 +1,12 @@
-import { AddBtnWithTime, arrayObjectsForm, meetingForm } from "./getListTime.js";
+// import { AddBtnWithTime, dateClick} from "./getListTime.js";
 
-let tiemClick;
+let timeClick;
 
 function addForm() {
-  tiemClick = `${this.innerText}`
+  timeClick = `${this.innerText}`
   const timeMeeting = document.querySelector(".fullName p:nth-child(3)");
   timeMeeting.innerText = `Время: ${this.innerText}`;
 
-  meetingForm.time = this.innerText;
-
-  
-  // localStorage["arrayObjectsForm"] = JSON.stringify(meetingForm.time);
   const getBtnMeeting = document.getElementById("btns-meeting");
   getBtnMeeting.classList.add("none");
   getBtnMeeting.innerHTML = "";
@@ -19,4 +15,4 @@ function addForm() {
 }
 
 
-export { addForm, tiemClick };
+export { addForm, timeClick };
