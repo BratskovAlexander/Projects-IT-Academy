@@ -57,18 +57,15 @@ td:nth-of-type(6), td:nth-of-type(7){
   background: rgb(185, 185, 185);
 }
 
+.pastDate{
+  color: rgb(148, 148, 148)
+}
+
 ul li {
   list-style-type: none;
 }
 
-.button-meeting1,
-.button-meeting2,
-.button-meeting3,
-.button-meeting4,
-.button-meeting5,
-.button-meeting6,
-.button-meeting7,
-.button-meeting8 {
+.button-meeting{
   display: flex;
   justify-content: center;
   margin: 10px auto;

@@ -1,15 +1,30 @@
-import "./calender.js";
+import { Calendar, checkDateForPast } from "./calender.js";
 import { addForm } from "./addForm.js";
 
 let dateClick;
 
+function checkForKey(key) {
+  if (localStorage.getItem(key) === null) {
+    return false;
+  }
+  return true;
+}
+
 function AddBtnWithTime() {
-  dateClick = `${this.innerText}.${
-    document.querySelector("#header-calender > p:nth-child(2)").dataset.month
-  }.${
-    document.querySelector("#header-calender > p:nth-child(1)").dataset.year
-  }`;
-  
+  let choosedDay = this.innerText;
+  let choosedMonth = document.querySelector("#header-calender > p:nth-child(2)")
+    .dataset.month;
+  let choosedYear = document.querySelector("#header-calender > p:nth-child(1)")
+    .dataset.year;
+
+    if (checkDateForPast(choosedYear, choosedMonth, choosedDay)) {
+      return;
+    }
+
+  dateClick = `${choosedDay}.${choosedMonth}.${choosedYear}`;
+
+
+
   let nowDate = document.querySelector(".fullName p:nth-child(2)");
   nowDate.innerText = `Выбранная дата: ${dateClick}`;
 
@@ -28,15 +43,19 @@ function AddBtnWithTime() {
   let arrayBtnTime = [];
   let timeToBtn = 9;
 
-    for (let i = 1; i < 9; i++) {
+  for (let i = 0; i < 8; ++i) {
     const btnMeeting = document.createElement("button");
     btnMeeting.addEventListener("click", addForm);
-    btnMeeting.classList.add(`button-meeting${i}`);
+    btnMeeting.classList.add("button-meeting");
     btnMeeting.innerText = `${timeToBtn}.00-${timeToBtn + 1}.00`;
+    if (checkForKey(JSON.stringify(dateClick + " / " + btnMeeting.innerText))) {
+      btnMeeting.setAttribute("disabled", true);
+      btnMeeting.setAttribute("title", "Сорян, занято");
+    }
     getBtnMeeting.appendChild(btnMeeting);
     arrayBtnTime[i] = btnMeeting;
-    timeToBtn++;
+    ++timeToBtn;
   }
 }
 
-export { AddBtnWithTime, dateClick};
+export { AddBtnWithTime, dateClick };

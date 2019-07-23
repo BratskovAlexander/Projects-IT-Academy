@@ -1,4 +1,3 @@
-// import { Calendar } from "./calender.js";
 import { AddBtnWithTime, dateClick } from "./getListTime.js";
 import { addForm, timeClick } from "./addForm.js";
   
@@ -11,8 +10,6 @@ import { addForm, timeClick } from "./addForm.js";
   meetingForm.email = document.querySelector(".email").value;
   meetingForm.tel = document.querySelector(".tel").value;
   meetingForm.textArea = document.querySelector(".text-area").value;
-  // elem.preventDefault();
-  // JSON.stringify(meetingForm);
 
   localStorage.setItem(JSON.stringify(dateTimeClick), JSON.stringify(meetingForm));
 

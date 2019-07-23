@@ -18,6 +18,21 @@ const arrayMonth = [
   "December"
 ]; //Массив для вывода названия месяца
 
+function checkDateForPast(year, month, date) {
+  
+  let currentDate = new Date();
+  if (parseInt(year) < currentDate.getFullYear()) {
+    return true;
+  }
+  if (parseInt(month) < currentDate.getMonth()) {
+    return true;
+  }
+  if (parseInt(month) === currentDate.getMonth() && parseInt(date) < currentDate.getDate()) {
+    return true;
+  }
+  return false;
+}
+
 function Calendar(id, year, month) {
   let dayFirst = new Date(year, month, 1);
   let lastDayMonth = new Date(year, month + 1, 0).getDate(); //Последний день меясца
@@ -27,7 +42,7 @@ function Calendar(id, year, month) {
     lastDayInfo.getMonth(),
     1
   ).getDay(); //первый день месяца
-  
+
   if (month == 12) {
     month = 0;
     year = Number(year) + 1;
@@ -36,12 +51,12 @@ function Calendar(id, year, month) {
     month = 11;
     year = Number(year) - 1;
   }
-const yearNow = (document
+  const yearNow = (document
     .getElementById("header-calender")
-    .appendChild(pForYear).innerHTML = `Now Year: ${year}`); //Вывели текущий год
+    .appendChild(pForYear).innerHTML = `Current Year: ${year}`); //Вывели текущий год
   const monthNow = (document
     .getElementById("header-calender")
-    .appendChild(pForMonth).innerHTML = `Now Month: ${arrayMonth[month]}`); //Вывели текущий месяц
+    .appendChild(pForMonth).innerHTML = `Current Month: ${arrayMonth[month]}`); //Вывели текущий месяц
 
   const nowMonthInHeadTable = (document.querySelector(
     "thead tr th[colspan]"
@@ -61,12 +76,19 @@ const yearNow = (document
     let tr = document.createElement("tr");
     for (let dayWeek = 0; dayWeek < 7; dayWeek++) {
       let td = document.createElement("td");
-      td.addEventListener("click", AddBtnWithTime);
       if (countWeek == 0 && dayWeek < firstDayMonth - 1) {
         td.innerText = "";
         tr.appendChild(td);
       } else {
+        td.addEventListener("click", AddBtnWithTime);
         td.innerText = dayFirst.getDate();
+
+        if( checkDateForPast(year, month, dayFirst.getDate()) ) {
+          td.setAttribute("disabled", true);
+          td.setAttribute("title", "Сорян, прошлая дата");
+          td.classList.add("pastDate");
+        }
+
         tr.appendChild(td);
         dayFirst.setDate(dayFirst.getDate() + 1);
       }
@@ -79,4 +101,4 @@ const yearNow = (document
   }
 }
 
-export { Calendar };
+export { Calendar, checkDateForPast };
