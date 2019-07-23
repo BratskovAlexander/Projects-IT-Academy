@@ -19,7 +19,6 @@ const arrayMonth = [
 ]; //Массив для вывода названия месяца
 
 function checkDateForPast(year, month, date) {
-  
   let currentDate = new Date();
   if (parseInt(year) < currentDate.getFullYear()) {
     return true;
@@ -27,7 +26,10 @@ function checkDateForPast(year, month, date) {
   if (parseInt(month) < currentDate.getMonth()) {
     return true;
   }
-  if (parseInt(month) === currentDate.getMonth() && parseInt(date) < currentDate.getDate()) {
+  if (
+    parseInt(month) === currentDate.getMonth() &&
+    parseInt(date) < currentDate.getDate()
+  ) {
     return true;
   }
   return false;
@@ -83,7 +85,7 @@ function Calendar(id, year, month) {
         td.addEventListener("click", AddBtnWithTime);
         td.innerText = dayFirst.getDate();
 
-        if( checkDateForPast(year, month, dayFirst.getDate()) ) {
+        if (checkDateForPast(year, month, dayFirst.getDate())) {
           td.setAttribute("disabled", true);
           td.setAttribute("title", "Сорян, прошлая дата");
           td.classList.add("pastDate");

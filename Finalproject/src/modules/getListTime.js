@@ -17,13 +17,11 @@ function AddBtnWithTime() {
   let choosedYear = document.querySelector("#header-calender > p:nth-child(1)")
     .dataset.year;
 
-    if (checkDateForPast(choosedYear, choosedMonth, choosedDay)) {
-      return;
-    }
+  if (checkDateForPast(choosedYear, choosedMonth, choosedDay)) {
+    return;
+  }
 
   dateClick = `${choosedDay}.${choosedMonth}.${choosedYear}`;
-
-
 
   let nowDate = document.querySelector(".fullName p:nth-child(2)");
   nowDate.innerText = `Выбранная дата: ${dateClick}`;
