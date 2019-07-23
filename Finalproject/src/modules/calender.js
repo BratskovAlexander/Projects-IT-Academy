@@ -85,7 +85,7 @@ function Calendar(id, year, month) {
         td.addEventListener("click", AddBtnWithTime);
         td.innerText = dayFirst.getDate();
 
-        if (checkDateForPast(year, month, dayFirst.getDate())) {
+        if (checkDateForPast(year, month, dayFirst.getDate()) || dayWeek >= 5 ) {
           td.setAttribute("disabled", true);
           td.setAttribute("title", "Сорян, прошлая дата");
           td.classList.add("pastDate");

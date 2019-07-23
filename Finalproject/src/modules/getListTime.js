@@ -16,8 +16,8 @@ function AddBtnWithTime() {
     .dataset.month;
   let choosedYear = document.querySelector("#header-calender > p:nth-child(1)")
     .dataset.year;
-
-  if (checkDateForPast(choosedYear, choosedMonth, choosedDay)) {
+  let choosedDate = new Date( choosedYear, choosedMonth, choosedDay );
+  if (checkDateForPast(choosedYear, choosedMonth, choosedDay) || choosedDate.getDay() === 0 || choosedDate.getDay() === 6 ) {
     return;
   }
 
