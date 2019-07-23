@@ -4,14 +4,14 @@ import { addForm, timeClick } from "./addForm.js";
 
   const btnForm = document.querySelector(".btn-form");
   btnForm.addEventListener("click", elem => {
-    let dateTimeClick = dateClick + "/" + timeClick;
+  elem.preventDefault();
+  let dateTimeClick = dateClick + "/" + timeClick;
   let meetingForm = {};
   meetingForm.nameUser = document.querySelector(".name").value;
   meetingForm.email = document.querySelector(".email").value;
   meetingForm.tel = document.querySelector(".tel").value;
-  meetingForm.select = document.querySelector(".select").value;
   meetingForm.textArea = document.querySelector(".text-area").value;
-  elem.preventDefault();
+ 
 
   JSON.stringify(meetingForm);
   localStorage.setItem(
@@ -22,7 +22,12 @@ import { addForm, timeClick } from "./addForm.js";
   let returnObj = JSON.parse(
     localStorage.getItem(JSON.stringify(dateTimeClick))
   );
-  console.log(returnObj);
+  
+  if (`"${dateTimeClick}"` === JSON.stringify(dateTimeClick) ) {
+    alert(2)
+    //document.querySelector("button").setAttribute('disabled');
+  }
+
 });
 
 function addObjectMeeting() {

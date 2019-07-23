@@ -1,21 +1,6 @@
 import "./calender.js";
 import { addForm } from "./addForm.js";
 
-const arrayMonth = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "Jule",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-];
-
 let dateClick;
 
 function AddBtnWithTime() {
@@ -43,7 +28,7 @@ function AddBtnWithTime() {
   let arrayBtnTime = [];
   let timeToBtn = 9;
 
-  for (let i = 1; i < 9; i++) {
+    for (let i = 1; i < 9; i++) {
     const btnMeeting = document.createElement("button");
     btnMeeting.addEventListener("click", addForm);
     btnMeeting.classList.add(`button-meeting${i}`);

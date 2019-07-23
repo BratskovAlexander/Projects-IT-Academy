@@ -1,23 +1,60 @@
-td {
-  text-align: center;
-}
 
 .main-page {
   width: 90%;
+  height: 100%;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
   margin-top: 10%;
   text-align: center;
   border: 3px solid gray;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   font-size: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "calender info";
+  align-items: start;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  background: rgb(223, 213, 213);
 }
 
 .page-calender {
-  width: 50%;
-  border-right: 1px solid gray;
+  grid-area: calender;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.page-info-about {
+  grid-area: info;
+  height: 100%;
+  border-left: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.calendar-table {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15%;
+  padding: 10px;
+}
+
+table{
+  border-spacing: 0;
+}
+
+td:hover, th:hover{
+  background: rgb(207, 201, 201);
+  transform: scale(1.1);
+  border-bottom: 1px solid gray;
+}
+
+td {
+  text-align: center;
+}
+
+td:nth-of-type(6), td:nth-of-type(7){
+  background: rgb(185, 185, 185);
 }
 
 ul li {
@@ -33,9 +70,16 @@ ul li {
 .button-meeting7,
 .button-meeting8 {
   display: flex;
-  margin: 5px auto;
+  justify-content: center;
+  margin: 10px auto;
   width: 35%;
   padding: 5px;
+  border-radius: 5px;
+  background: rgb(185, 185, 185);
+}
+
+button:hover{
+  transform: scale(1.1)
 }
 
 .form-meeting {
@@ -48,19 +92,52 @@ ul li {
 .text-area,
 .btn-form {
   margin: 10px auto;
+  border-radius: 5px;
 }
 
 .text-area {
-  min-width: 10%;
-  max-width: 20%;
+  height: 30px;
+  min-width: 200px;
+  max-width: 200px;
   min-height: 10px;
-  max-height: 30%;
+  max-height: 50px;
 }
 
 .none {
   display: none;
 }
 
-.activ {
-  display: block;
+@media (max-width: 680px) {
+  .main-page {
+    width: 90%;
+    font-size: 17px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      "calender"
+      "info";
+  }
+  .page-calender {
+    border-bottom: 1px solid gray;
+  }
+}
+@media (max-width: 480px) {
+  .main-page {
+    width: 95%;
+    font-size: 17px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      "calender"
+      "info";
+  }
+  .page-calender {
+    border-bottom: 1px solid gray;
+  }
+
+  .calendar-table {
+    max-width: 100%;
+  }
+
+  .form-meeting {
+    max-width: 320px;
+  }
 }

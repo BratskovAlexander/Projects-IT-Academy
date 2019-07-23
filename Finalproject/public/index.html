@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Meeting manager</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../src/style.css" />
   </head>
 
@@ -24,7 +25,7 @@
                 </tr>
                 <tr>
                   <th>Mon</th>
-                  <th>Tuu</th>
+                  <th>Tue</th>
                   <th>Wed</th>
                   <th>Thu</th>
                   <th>Fri</th>
@@ -40,6 +41,7 @@
       <div class="page-info-about">
         <div class="fullName">
           <p>Брацков Александр Вячеславович</p>
+          <p></p>
           <p></p>
           <p></p>
         </div>
@@ -71,18 +73,12 @@
           </div>
         </div>
         <div id="btns-meeting" class="none"></div>
-        <form class="form-meeting none">
-          <input class="name form-input" type="text" placeholder="Ваше имя">
-          <input class="email form-input" type="email" placeholder="Ваш почтовый адрес">
-          <input class="tel form-input" type="tel" placeholder="Ваш номер телефона">
-          <select class="select form-input" placeholder="место встречи">
-            <option>место встречи</option>
-            <option>г.Минск ул.октябрьская, 27</option>
-            <option>г.Минск ул.октябрьская, 25</option>
-            <option>г.Минск ул.октябрьская, 7</option>
-          </select>
-          <textarea class="text-area"></textarea>
-          <button class="btn-form">Add meeting</button>
+        <form class="form-meeting none" method="POST" action="https://formspree.io/monutor@mail.ru">
+          <input class="name form-input" type="text" name="name" placeholder="Ваше имя">
+          <input class="email form-input" name="email" type="email" placeholder="Ваш почтовый адрес">
+          <input class="tel form-input" name="number" type="tel" placeholder="Ваш номер телефона">
+          <textarea name="message" class="text-area  form-input"></textarea>
+          <button type="submit" class="btn-form">Add meeting</button>
         </form>
       </div>
     </div>
