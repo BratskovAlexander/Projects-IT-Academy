@@ -74,11 +74,11 @@ function Calendar(id, year, month) {
   }
 
   let countWeek = 0;
-  while (dayFirst.getMonth() == month) {
+  while (dayFirst.getMonth() === month) {
     let tr = document.createElement("tr");
     for (let dayWeek = 0; dayWeek < 7; dayWeek++) {
       let td = document.createElement("td");
-      if (countWeek == 0 && dayWeek < firstDayMonth - 1) {
+      if (countWeek === 0 && dayWeek < firstDayMonth - 1) {
         td.innerText = "";
         tr.appendChild(td);
       } else {
@@ -87,14 +87,14 @@ function Calendar(id, year, month) {
 
         if (checkDateForPast(year, month, dayFirst.getDate()) || dayWeek >= 5 ) {
           td.setAttribute("disabled", true);
-          td.setAttribute("title", "Сорян, прошлая дата");
+          td.setAttribute("title", "На эту дату нету встреч");
           td.classList.add("pastDate");
         }
 
         tr.appendChild(td);
         dayFirst.setDate(dayFirst.getDate() + 1);
       }
-      if (dayFirst.getMonth() != month) {
+      if (dayFirst.getMonth() !== month) {
         break;
       }
     }

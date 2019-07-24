@@ -48,7 +48,7 @@ function AddBtnWithTime() {
     btnMeeting.innerText = `${timeToBtn}.00-${timeToBtn + 1}.00`;
     if (checkForKey(JSON.stringify(dateClick + " / " + btnMeeting.innerText))) {
       btnMeeting.setAttribute("disabled", true);
-      btnMeeting.setAttribute("title", "Сорян, занято");
+      btnMeeting.setAttribute("title", "Эта время занята");
     }
     getBtnMeeting.appendChild(btnMeeting);
     arrayBtnTime[i] = btnMeeting;

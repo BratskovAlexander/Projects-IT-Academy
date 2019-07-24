@@ -3,8 +3,8 @@ import { addForm, timeClick } from "./addForm.js";
 
 const btnForm = document.querySelector(".btn-form");
 btnForm.addEventListener("click", elem => {
-  let dateTimeClick = dateClick + " / " + timeClick;
-  let meetingForm = {};
+  const dateTimeClick = dateClick + " / " + timeClick;
+  const meetingForm = {};
   meetingForm.nameUser = document.querySelector(".name").value;
   meetingForm.email = document.querySelector(".email").value;
   meetingForm.tel = document.querySelector(".tel").value;
@@ -14,12 +14,5 @@ btnForm.addEventListener("click", elem => {
     JSON.stringify(dateTimeClick),
     JSON.stringify(meetingForm)
   );
-
-  let returnObj = JSON.parse(
-    localStorage.getItem(JSON.stringify(dateTimeClick))
-  );
 });
 
-function addObjectMeeting() {}
-
-export { addObjectMeeting };

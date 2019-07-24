@@ -12,7 +12,7 @@ function ChangeMonth() {
       element.removeChild(element.lastChild);
     }
 
-    Calendar(
+    const calendar = new Calendar(
       "table",
       document.querySelector("p").dataset.year,
       parseInt(document.querySelector("p:nth-child(2)").dataset.month) - 1
@@ -24,7 +24,7 @@ function ChangeMonth() {
       element.removeChild(element.lastChild);
     }
     
-    Calendar(
+    const calendar = new Calendar(
       "table",
       document.querySelector("p").dataset.year,
       parseInt(document.querySelector("p:nth-child(2)").dataset.month) + 1
