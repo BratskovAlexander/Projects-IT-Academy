@@ -1,8 +1,9 @@
 import { AddBtnWithTime, dateClick } from "./getListTime.js";
 import { addForm, timeClick } from "./addForm.js";
 
-const btnForm = document.querySelector(".btn-form");
-btnForm.addEventListener("click", elem => {
+function addObjectMeeting() {
+  const btnForm = document.querySelector(".btn-form");
+btnForm.addEventListener("click", () => {
   const dateTimeClick = dateClick + " / " + timeClick;
   const meetingForm = {};
   meetingForm.nameUser = document.querySelector(".name").value;
@@ -15,4 +16,7 @@ btnForm.addEventListener("click", elem => {
     JSON.stringify(meetingForm)
   );
 });
+}
+addObjectMeeting();
 
+export { addObjectMeeting }

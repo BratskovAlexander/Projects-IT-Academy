@@ -1,6 +1,8 @@
 import { Calendar } from "./calender.js";
 import { ChangeMonth } from "./changeMonth.js";
 import { AddBtnWithTime } from "./getListTime.js";
+import { addObjectMeeting } from './addObjectMeeting.js';
+
 
 const calendar = new Calendar(
   "table",
