@@ -32,7 +32,7 @@
 }
 
 .calendar-table {
-  min-width: 320px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   margin-top: 15%;
@@ -136,5 +136,21 @@ button:hover{
 
   .form-meeting {
     max-width: 320px;
+  }
+}
+@media (max-width: 320px) {
+  .main-page {
+    width: 100%;
+    height: 550px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-size: 15px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      "calender"
+      "info";
+  }
+  .calendar-table {
+    max-width: 310px;
   }
 }
