@@ -10,3 +10,8 @@ const calendar = new Calendar(
   new Date().getMonth()
 );
 const changeMonth = new ChangeMonth();
+
+document.querySelector('span').addEventListener('click', () => {
+  window.location.reload();
+})
+
