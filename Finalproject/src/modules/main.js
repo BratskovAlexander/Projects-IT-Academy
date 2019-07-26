@@ -11,7 +11,9 @@ const calendar = new Calendar(
 );
 const changeMonth = new ChangeMonth();
 
-document.querySelector('span').addEventListener('click', () => {
+const htmlElements = {};
+
+htmlElements.btnHome = document.querySelector('span').addEventListener('click', () => {
   window.location.reload();
 })
 
