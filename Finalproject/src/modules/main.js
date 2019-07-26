@@ -1,8 +1,7 @@
-import { Calendar } from "./calender.js";
-import { ChangeMonth } from "./changeMonth.js";
-import { AddBtnWithTime, dateClick, htmlElements } from "./getListTime.js";
+import { Calendar, checkDateForPast } from "./calender.js";
 import { addObjectMeeting } from './addObjectMeeting.js';
 
+const htmlElements = {};
 htmlElements.btnHome = document.querySelector('span').addEventListener('click', () => {
   window.location.reload();
 })
@@ -12,9 +11,9 @@ const calendar = new Calendar(
   new Date().getFullYear(),
   new Date().getMonth()
 );
-const changeMonth = new ChangeMonth();
 
-
+calendar.changeMonth();
+addObjectMeeting();
 
 
 

@@ -1,9 +1,6 @@
 import { AddBtnWithTime, dateClick, htmlElements } from "./getListTime.js";
 import { addForm, timeClick } from "./addForm.js";
 
-
-
-
 const meetingForm = {};
   meetingForm.nameUser = document.querySelector(".name");
   meetingForm.email = document.querySelector(".email");
@@ -26,6 +23,5 @@ function addObjectMeeting() {
   );
 });
 }
-addObjectMeeting();
 
 export { addObjectMeeting }
