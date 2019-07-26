@@ -1,9 +1,8 @@
 import { Calendar } from "./calender.js";
 import { ChangeMonth } from "./changeMonth.js";
-import { AddBtnWithTime } from "./getListTime.js";
+import { AddBtnWithTime, dateClick, htmlElements } from "./getListTime.js";
 import { addObjectMeeting } from './addObjectMeeting.js';
 
-const htmlElements = {};
 htmlElements.btnHome = document.querySelector('span').addEventListener('click', () => {
   window.location.reload();
 })

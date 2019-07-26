@@ -1,8 +1,8 @@
-import { AddBtnWithTime, dateClick } from "./getListTime.js";
+import { AddBtnWithTime, dateClick, htmlElements } from "./getListTime.js";
 import { addForm, timeClick } from "./addForm.js";
 
-const htmlElements = {};
-htmlElements.btnForm = document.querySelector(".btn-form");
+
+
 
 const meetingForm = {};
   meetingForm.nameUser = document.querySelector(".name");
@@ -11,6 +11,7 @@ const meetingForm = {};
   meetingForm.textArea = document.querySelector(".text-area");
 
 function addObjectMeeting() {
+  htmlElements.btnForm = document.querySelector(".btn-form");
   htmlElements.btnForm.addEventListener("click", () => {
   const dateTimeClick = dateClick + " / " + timeClick;
 
