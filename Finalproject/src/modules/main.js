@@ -3,6 +3,10 @@ import { ChangeMonth } from "./changeMonth.js";
 import { AddBtnWithTime } from "./getListTime.js";
 import { addObjectMeeting } from './addObjectMeeting.js';
 
+const htmlElements = {};
+htmlElements.btnHome = document.querySelector('span').addEventListener('click', () => {
+  window.location.reload();
+})
 
 const calendar = new Calendar(
   "table",
@@ -11,9 +15,7 @@ const calendar = new Calendar(
 );
 const changeMonth = new ChangeMonth();
 
-const htmlElements = {};
 
-htmlElements.btnHome = document.querySelector('span').addEventListener('click', () => {
-  window.location.reload();
-})
+
+
 

@@ -1,17 +1,18 @@
 import { AddBtnWithTime, dateClick} from "./getListTime.js";
 
-let timeClick;
+const htmlElements = {};
+htmlElements.timeMeeting = document.querySelector(".fullName p:nth-child(3)");
+htmlElements.form = document.querySelector(".form-meeting");
+htmlElements.dateTime = document.getElementById("dateTime");
+htmlElements.getBtnMeeting = document.getElementById("btns-meeting");
 
 function addForm() {
-  timeClick = `${this.innerText}`;
-  document.getElementById("dateTime").setAttribute("value", `${dateClick + "/" + timeClick}`);
-  const timeMeeting = document.querySelector(".fullName p:nth-child(3)");
-  timeMeeting.innerText = `Время: ${this.innerText}`;
-  const getBtnMeeting = document.getElementById("btns-meeting");
-  getBtnMeeting.classList.add("none");
-  getBtnMeeting.innerHTML = "";
-  const form = document.querySelector(".form-meeting");
-  form.classList.remove("none");
+  let timeClick = `${this.innerText}`;
+  htmlElements.dateTime.setAttribute("value", `${dateClick + "/" + timeClick}`);
+  htmlElements.timeMeeting.innerText = `Время: ${this.innerText}`;
+  htmlElements.getBtnMeeting.classList.add("none");
+  htmlElements.getBtnMeeting.innerHTML = "";
+  htmlElements.form.classList.remove("none");
 }
 
 

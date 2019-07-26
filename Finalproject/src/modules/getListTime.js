@@ -1,9 +1,16 @@
 import { Calendar, checkDateForPast } from "./calender.js";
 import { addForm } from "./addForm.js";
 
-let dateClick;
+const htmlElenents = {};
+htmlElenents.choosedMonth = document.querySelector("#header-calender > p:nth-child(2)");
+htmlElenents.choosedYear = document.querySelector("#header-calender > p:nth-child(1)");
+htmlElenents.nowDate = document.querySelector(".fullName p:nth-child(2)");
+htmlElenents.infoAboutMe = document.querySelector(".page-info-about div.infoAboutMe");
+htmlElenents.getBtnMeeting = document.getElementById("btns-meeting");
+htmlElenents.form = document.querySelector(".form-meeting");
 
 function checkForKey(key) {
+
   if (localStorage.getItem(key) === null) {
     return false;
   }
@@ -11,32 +18,23 @@ function checkForKey(key) {
 }
 
 function AddBtnWithTime() {
+  htmlElenents.choosedYear.dataset.year;
+  htmlElenents.choosedMonth.dataset.month;
+  
   let choosedDay = this.innerText;
-  let choosedMonth = document.querySelector("#header-calender > p:nth-child(2)")
-    .dataset.month;
-  let choosedYear = document.querySelector("#header-calender > p:nth-child(1)")
-    .dataset.year;
   let choosedDate = new Date( choosedYear, choosedMonth, choosedDay );
+
   if (checkDateForPast(choosedYear, choosedMonth, choosedDay) || choosedDate.getDay() === 0 || choosedDate.getDay() === 6 ) {
     return;
   }
 
-  dateClick = `${choosedDay}.${choosedMonth}.${choosedYear}`;
+  let dateClick = `${choosedDay}.${choosedMonth}.${choosedYear}`;
 
-  let nowDate = document.querySelector(".fullName p:nth-child(2)");
-  nowDate.innerText = `Выбранная дата: ${dateClick}`;
-
-  const infoAboutMe = document.querySelector(
-    ".page-info-about div.infoAboutMe"
-  );
-  infoAboutMe.classList.add("none");
-
-  const getBtnMeeting = document.getElementById("btns-meeting");
-  getBtnMeeting.classList.remove("none");
-  getBtnMeeting.innerText = "";
-
-  const form = document.querySelector(".form-meeting");
-  form.classList.add("none");
+  htmlElenents.nowDate.innerText = `Выбранная дата: ${dateClick}`;
+  htmlElenents.infoAboutMe.classList.add("none");
+  htmlElenents.getBtnMeeting.classList.remove("none");
+  htmlElenents.getBtnMeeting.innerText = "";
+  htmlElenents.form.classList.add("none");
 
   let arrayBtnTime = [];
   let timeToBtn = 9;

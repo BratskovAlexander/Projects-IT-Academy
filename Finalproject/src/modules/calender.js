@@ -36,33 +36,24 @@ function checkDateForPast(year, month, date) {
 }
 
 function Calendar(id, year, month) {
-  let dayFirst = new Date(year, month, 1);
+  let dayFirst = new Date(year, month, 1); //Первое число
   let lastDayMonth = new Date(year, month + 1, 0).getDate(); //Последний день меясца
   const lastDayInfo = new Date(year, month, lastDayMonth); // ифно последнего дня месяца
-  let firstDayMonth = new Date(
-    lastDayInfo.getFullYear(),
-    lastDayInfo.getMonth(),
-    1
-  ).getDay(); //первый день месяца
+  let firstDayMonth = new Date(lastDayInfo.getFullYear(), lastDayInfo.getMonth(), 1).getDay(); //первый день месяца
 
   if (month == 12) {
     month = 0;
     year = Number(year) + 1;
-  }
+  } //Выводим Январь после декабря
+
   if (month == -1) {
     month = 11;
     year = Number(year) - 1;
-  }
-  const yearNow = (document
-    .getElementById("header-calender")
-    .appendChild(pForYear).innerHTML = `Current Year: ${year}`); //Вывели текущий год
-  const monthNow = (document
-    .getElementById("header-calender")
-    .appendChild(pForMonth).innerHTML = `Current Month: ${arrayMonth[month]}`); //Вывели текущий месяц
+  } //Выводим декабрь после января
 
-  const nowMonthInHeadTable = (document.querySelector(
-    "thead tr th[colspan]"
-  ).innerHTML = arrayMonth[month]); //Вывели текущий месяц в шапку таблицы
+  const yearNow = (document.getElementById("header-calender").appendChild(pForYear).innerHTML = `Current Year: ${year}`); //Вывели текущий год
+  const monthNow = (document.getElementById("header-calender").appendChild(pForMonth).innerHTML = `Current Month: ${arrayMonth[month]}`); //Вывели текущий месяц
+  const nowMonthInHeadTable = (document.querySelector("thead tr th[colspan]").innerHTML = arrayMonth[month]); //Вывели текущий месяц в шапку таблицы
 
   document.querySelector("p").dataset.year = lastDayInfo.getFullYear();
   document.querySelector(
