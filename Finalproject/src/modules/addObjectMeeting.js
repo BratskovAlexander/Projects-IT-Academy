@@ -16,8 +16,8 @@ function addObjectMeeting() {
   meetingForm.email.value;
   meetingForm.tel.value;
   meetingForm.textArea.value;
-  
-  localStorage.setItem(
+
+    localStorage.setItem(
     JSON.stringify(dateTimeClick),
     JSON.stringify(meetingForm)
   );

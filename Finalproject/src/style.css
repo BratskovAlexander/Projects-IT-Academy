@@ -63,6 +63,7 @@
 .open-home{
   position: absolute;
 }
+
 .page-calender {
   grid-area: calender;
   height: 100%;
