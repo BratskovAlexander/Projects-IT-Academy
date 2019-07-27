@@ -62,6 +62,8 @@
 
 .open-home{
   position: absolute;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-calender {
@@ -145,6 +147,8 @@ button:hover{
   min-height: 10px;
   max-height: 50px;
 }
+
+.check-meeting-list{}
 
 .none {
   display: none;

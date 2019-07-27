@@ -4,6 +4,8 @@ htmlElements.userLogin = document.querySelector('.username');
 htmlElements.password = document.querySelector(".password");
 htmlElements.btnLogin = document.querySelector(".btn-login");
 htmlElements.outLogin = document.querySelector(".out-home");
+htmlElements.btnCheckList = document.querySelector(".btn-meeting-list");
+htmlElements.checkList = document.querySelector(".check-meeting-list");
 htmlElements.loginForm = document.querySelector(".login-form");
 htmlElements.mainPage = document.querySelector(".main-page");
 htmlElements.modalWindow = document.querySelector(".modalWindow");
@@ -15,8 +17,16 @@ htmlElements.html = document.querySelector("html");
  });
  htmlElements.outLogin.addEventListener("click", (elem) => {
   elem.preventDefault();
+  elem.stopPropagation();
   localStorage.removeItem("logIn");
 });
+htmlElements.btnCheckList.addEventListener("click", () => {
+  let checkList = localStorage.getItem(JSON.parse(meetingForm));
+  console.log(checkList);
+  htmlElements.checkList.innerHTML = "123";
+
+});
+
 
  if(localStorage.getItem("logIn") === "true") {
   htmlElements.loginForm.classList.add("none");
