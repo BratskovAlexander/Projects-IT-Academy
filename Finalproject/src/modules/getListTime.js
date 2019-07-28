@@ -1,5 +1,4 @@
-import { Calendar, checkDateForPast } from "./calender.js";
-import { addForm } from "./addForm.js";
+import { checkDateForPast } from "./calender.js";
 
 const htmlElements = {};
 htmlElements.nowDate = document.querySelector(".fullName p:nth-child(2)");
@@ -16,6 +15,20 @@ function checkForKey(key) {
     return false;
   }
   return true;
+}
+
+
+function addForm() {
+  htmlElements.timeMeeting = document.querySelector(".fullName p:nth-child(3)");
+  htmlElements.form = document.querySelector(".form-meeting");
+  htmlElements.dateTime = document.getElementById("dateTime");
+  htmlElements.getBtnMeeting = document.getElementById("btns-meeting");
+  timeClick = `${this.innerText}`;
+  htmlElements.dateTime.setAttribute("value", `${dateClick + "/" + timeClick}`);
+  htmlElements.timeMeeting.innerText = `Время: ${this.innerText}`;
+  htmlElements.getBtnMeeting.classList.add("none");
+  htmlElements.getBtnMeeting.innerHTML = "";
+  htmlElements.form.classList.remove("none");
 }
 
 function AddBtnWithTime() {
@@ -55,5 +68,34 @@ function AddBtnWithTime() {
     ++timeToBtn;
   }
 }
+
+let timeClick;
+
+
+
+const meetingForm = {};
+  meetingForm.nameUser = document.querySelector(".name");
+  meetingForm.email = document.querySelector(".email");
+  meetingForm.tel = document.querySelector(".tel");
+  meetingForm.textArea = document.querySelector(".text-area");
+
+function addObjectMeeting() {
+  htmlElements.btnForm = document.querySelector(".btn-form");
+  htmlElements.btnForm.addEventListener("click", () => {
+  const dateTimeClick = dateClick + " / " + timeClick;
+
+  meetingForm.nameUser.value;
+  meetingForm.email.value;
+  meetingForm.tel.value;
+  meetingForm.textArea.value;
+
+    localStorage.setItem(
+    JSON.stringify(dateTimeClick),
+    JSON.stringify(meetingForm)
+  );
+
+});
+}
+
 
 export { AddBtnWithTime, dateClick, htmlElements };
