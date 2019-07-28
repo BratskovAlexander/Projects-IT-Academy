@@ -2,7 +2,6 @@ import { getUsers } from "./users.servise.js";
 import { Calendar, checkDateForPast } from "./calender.js";
 import { addObjectMeeting } from "./addObjectMeeting.js";
 
-// getUsers();
 const htmlElements = {};
 htmlElements.btnHome = document
   .querySelector("span")
@@ -11,10 +10,8 @@ htmlElements.btnHome = document
   });
 
 const calendar = new Calendar(
-  "table",
   new Date().getFullYear(),
   new Date().getMonth()
 );
 
 calendar.changeMonth();
-addObjectMeeting();

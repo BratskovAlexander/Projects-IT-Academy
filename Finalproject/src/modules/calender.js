@@ -40,7 +40,36 @@ function checkDateForPast(year, month, date) {
   return false;
 }
 
-function Calendar(id, year, month) {
+function Calendar(year, month) {
+  this.render(year, month);
+ };
+
+Calendar.prototype.changeMonth = function() {
+  
+  const htmlElements = {
+  btnPrevious: document.querySelector("thead tr th"),
+  btnNext: document.querySelector("thead tr th:last-child")
+};
+
+htmlElements.btnPrevious.addEventListener("click", function() {
+  let element = document.getElementById("body-table");
+  while (element.lastChild) {
+    element.removeChild(element.lastChild);
+  }
+  Calendar.prototype.render(document.querySelector("p").dataset.year, parseInt(document.querySelector("p:nth-child(2)").dataset.month) - 1);
+});
+
+htmlElements.btnNext.addEventListener("click", function() {
+  let element = document.getElementById("body-table");
+  while (element.lastChild) {
+    element.removeChild(element.lastChild);
+  }
+  Calendar.prototype.render(document.querySelector("p").dataset.year, parseInt(document.querySelector("p:nth-child(2)").dataset.month) + 1);
+});
+}
+
+
+Calendar.prototype.render = function(year, month) {
   let dayFirst = new Date(year, month, 1); //Первое число
   let lastDayMonth = new Date(year, month + 1, 0).getDate(); //Последний день меясца
   const lastDayInfo = new Date(year, month, lastDayMonth); // ифно последнего дня месяца
@@ -99,29 +128,5 @@ function Calendar(id, year, month) {
   }
 }
 
-Calendar.prototype.changeMonth = function() {
-  const htmlElements = {
-  btnPrevious: document.querySelector("thead tr th"),
-  btnNext: document.querySelector("thead tr th:last-child")
-};
-
-htmlElements.btnPrevious.addEventListener("click", function() {
-  let element = document.getElementById("body-table");
-  while (element.lastChild) {
-    element.removeChild(element.lastChild);
-  }
-
-  const calendar = new Calendar("table", document.querySelector("p").dataset.year, parseInt(document.querySelector("p:nth-child(2)").dataset.month) - 1);
-});
-
-htmlElements.btnNext.addEventListener("click", function() {
-  let element = document.getElementById("body-table");
-  while (element.lastChild) {
-    element.removeChild(element.lastChild);
-  }
-  
-  const calendar = new Calendar("table", document.querySelector("p").dataset.year, parseInt(document.querySelector("p:nth-child(2)").dataset.month) + 1);
-});
-}
 
 export { Calendar, checkDateForPast };
