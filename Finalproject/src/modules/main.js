@@ -1,5 +1,5 @@
-import { getUsers } from "./users.servise.js";
-import { Calendar, checkDateForPast } from "./calender.js";
+import "./users.servise.js";
+import { Calendar } from "./calender.js";
 
 const htmlElements = {};
 htmlElements.btnHome = document

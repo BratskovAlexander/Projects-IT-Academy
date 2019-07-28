@@ -17,7 +17,6 @@ htmlElements.html = document.querySelector("html");
  });
  htmlElements.outLogin.addEventListener("click", (elem) => {
   elem.preventDefault();
-  elem.stopPropagation();
   localStorage.removeItem("logIn");
 });
 htmlElements.btnCheckList.addEventListener("click", () => {
@@ -37,12 +36,12 @@ function getUsers() {
   let username = htmlElements.userLogin.value;
   let password = htmlElements.password.value;
   let logIn = false;
-  let url = 'https://my-json-server.typicode.com/BratskovAlexander/JSON/users';
+  let url = 'https://my-first-backend-experience.herokuapp.com/users';
 
     for (let i = 1; i < 10; i++) {
     fetch(`${url}/${i}`).then(response => response.json()).then((json) => {
-    
     if (json.name === username && json.password === parseInt(password)) {
+      
       logIn = true;
       localStorage.setItem("logIn", JSON.stringify(logIn));
       htmlElements.loginForm.classList.add("none");

@@ -1,4 +1,4 @@
-import { AddBtnWithTime } from "./getListTime.js";
+import { AddBtnWithTime } from "./getMeeting.js";
 
 const pForYear = document.createElement("p"); //абзац для года
 const pForMonth = document.createElement("p"); //абзац для месяца
@@ -45,7 +45,6 @@ function Calendar(year, month) {
  };
 
 Calendar.prototype.changeMonth = function() {
-  
   const htmlElements = {
   btnPrevious: document.querySelector("thead tr th"),
   btnNext: document.querySelector("thead tr th:last-child")
