@@ -1,5 +1,6 @@
 import "./users.servise.js";
 import { Calendar } from "./calender.js";
+import './getMeeting.js';
 
 const htmlElements = {};
 htmlElements.btnHome = document
