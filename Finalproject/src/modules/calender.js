@@ -19,9 +19,15 @@ const arrayMonth = [
 ]; //Массив для вывода названия месяца
 
 const htmlElements = {};
-htmlElements.yearNow = document.getElementById("header-calender").appendChild(pForYear),
-htmlElements.monthNow = document.getElementById("header-calender").appendChild(pForMonth),
-htmlElements.nowMonthInHeadTable = document.querySelector("thead tr th[colspan]");
+(htmlElements.yearNow = document
+  .getElementById("header-calender")
+  .appendChild(pForYear)),
+  (htmlElements.monthNow = document
+    .getElementById("header-calender")
+    .appendChild(pForMonth)),
+  (htmlElements.nowMonthInHeadTable = document.querySelector(
+    "thead tr th[colspan]"
+  ));
 
 function checkDateForPast(year, month, date) {
   let currentDate = new Date();
@@ -42,37 +48,46 @@ function checkDateForPast(year, month, date) {
 
 function Calendar(year, month) {
   this.render(year, month);
- };
+}
 
 Calendar.prototype.changeMonth = function() {
   const htmlElements = {
-  btnPrevious: document.querySelector("thead tr th"),
-  btnNext: document.querySelector("thead tr th:last-child")
+    btnPrevious: document.querySelector("thead tr th"),
+    btnNext: document.querySelector("thead tr th:last-child")
+  };
+
+  htmlElements.btnPrevious.addEventListener("click", function() {
+    let element = document.getElementById("body-table");
+    while (element.lastChild) {
+      element.removeChild(element.lastChild);
+    }
+    Calendar.prototype.render(
+      document.querySelector("p").dataset.year,
+      parseInt(document.querySelector("p:nth-child(2)").dataset.month) - 1
+    );
+  });
+
+  htmlElements.btnNext.addEventListener("click", function() {
+    let element = document.getElementById("body-table");
+    while (element.lastChild) {
+      element.removeChild(element.lastChild);
+    }
+    Calendar.prototype.render(
+      document.querySelector("p").dataset.year,
+      parseInt(document.querySelector("p:nth-child(2)").dataset.month) + 1
+    );
+  });
 };
-
-htmlElements.btnPrevious.addEventListener("click", function() {
-  let element = document.getElementById("body-table");
-  while (element.lastChild) {
-    element.removeChild(element.lastChild);
-  }
-  Calendar.prototype.render(document.querySelector("p").dataset.year, parseInt(document.querySelector("p:nth-child(2)").dataset.month) - 1);
-});
-
-htmlElements.btnNext.addEventListener("click", function() {
-  let element = document.getElementById("body-table");
-  while (element.lastChild) {
-    element.removeChild(element.lastChild);
-  }
-  Calendar.prototype.render(document.querySelector("p").dataset.year, parseInt(document.querySelector("p:nth-child(2)").dataset.month) + 1);
-});
-}
-
 
 Calendar.prototype.render = function(year, month) {
   let dayFirst = new Date(year, month, 1); //Первое число
   let lastDayMonth = new Date(year, month + 1, 0).getDate(); //Последний день меясца
   const lastDayInfo = new Date(year, month, lastDayMonth); // ифно последнего дня месяца
-  let firstDayMonth = new Date(lastDayInfo.getFullYear(), lastDayInfo.getMonth(), 1).getDay(); //первый день месяца
+  let firstDayMonth = new Date(
+    lastDayInfo.getFullYear(),
+    lastDayInfo.getMonth(),
+    1
+  ).getDay(); //первый день месяца
 
   if (month == 12) {
     month = 0;
@@ -85,7 +100,7 @@ Calendar.prototype.render = function(year, month) {
   } //Выводим декабрь после января
 
   htmlElements.yearNow.innerHTML = `Current Year: ${year}`; //Вывели текущий год
-  htmlElements.monthNow.innerHTML = `Current Month: ${arrayMonth[month]}` ; //Вывели текущий месяц
+  htmlElements.monthNow.innerHTML = `Current Month: ${arrayMonth[month]}`; //Вывели текущий месяц
   htmlElements.nowMonthInHeadTable.innerHTML = arrayMonth[month]; //Вывели текущий месяц в шапку таблицы
 
   document.querySelector("p").dataset.year = lastDayInfo.getFullYear();
@@ -93,7 +108,7 @@ Calendar.prototype.render = function(year, month) {
     "p:nth-child(2)"
   ).dataset.month = lastDayInfo.getMonth();
 
-   if (firstDayMonth == 0) {
+  if (firstDayMonth == 0) {
     firstDayMonth = 7;
   }
 
@@ -109,7 +124,7 @@ Calendar.prototype.render = function(year, month) {
         td.addEventListener("click", AddBtnWithTime);
         td.innerText = dayFirst.getDate();
 
-        if (checkDateForPast(year, month, dayFirst.getDate()) || dayWeek >= 5 ) {
+        if (checkDateForPast(year, month, dayFirst.getDate()) || dayWeek >= 5) {
           td.setAttribute("disabled", true);
           td.setAttribute("title", "На эту дату нету встреч");
           td.classList.add("pastDate");
@@ -125,7 +140,6 @@ Calendar.prototype.render = function(year, month) {
     document.getElementById("body-table").appendChild(tr);
     countWeek++;
   }
-}
-
+};
 
 export { Calendar, checkDateForPast };
