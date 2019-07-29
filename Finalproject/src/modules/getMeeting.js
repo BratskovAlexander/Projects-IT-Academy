@@ -73,33 +73,36 @@ let timeClick;
 
 
 
-const meetingForm = {};
-  meetingForm.nameUser = document.querySelector(".name");
-  meetingForm.email = document.querySelector(".email");
-  meetingForm.tel = document.querySelector(".tel");
-  meetingForm.textArea = document.querySelector(".text-area");
+// const meetingForm = {};
+  // meetingForm.nameUser = document.querySelector(".name");
+  // meetingForm.email = document.querySelector(".email");
+  // meetingForm.tel = document.querySelector(".tel");
+  // meetingForm.textArea = document.querySelector(".text-area");
 
 function addObjectMeeting() {
   htmlElements.btnForm = document.querySelector(".btn-form");
   htmlElements.btnForm.addEventListener("click", () => {
   const dateTimeClick = dateClick + " / " + timeClick;
-
-  meetingForm.nameUser.value;
-  meetingForm.email.value;
-  meetingForm.tel.value;
-  meetingForm.textArea.value;
+  const meetingForm = {};
+  meetingForm.nameUser = document.querySelector(".name").value;
+  meetingForm.email = document.querySelector(".email").value;
+  meetingForm.tel = document.querySelector(".tel").value;
+  meetingForm.textArea = document.querySelector(".text-area").value;
+  // meetingForm.nameUser.value;
+  // meetingForm.email.value;
+  // meetingForm.tel.value;
+  // meetingForm.textArea.value;
 
     localStorage.setItem(
     JSON.stringify(dateTimeClick),
     JSON.stringify(meetingForm)
   );
 
-  postData('https://my-first-backend-experience.herokuapp.com/dataTimeMeeting', {answer: 43})
+  postData('https://my-first-backend-experience.herokuapp.com/dataTimeMeeting', {dateTimeClick: dateTimeClick, meetingForm: meetingForm})
   .then(data => console.log(JSON.stringify(data))) // JSON-строка полученная после вызова `response.json()`
   .catch(error => console.error(error));
 
 function postData(url = '', data = {}) {
-  debugger;
   // Значения по умолчанию обозначены знаком *
     return fetch(url, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -117,10 +120,8 @@ function postData(url = '', data = {}) {
     .then(response => response.json()); // парсит JSON ответ в Javascript объект
 }
 
-
 });
 }
-
 
 addObjectMeeting()
 

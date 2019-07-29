@@ -19,11 +19,18 @@ htmlElements.html = document.querySelector("html");
   elem.preventDefault();
   localStorage.removeItem("logIn");
 });
-htmlElements.btnCheckList.addEventListener("click", () => {
-  let checkList = localStorage.getItem(JSON.parse(meetingForm));
-  console.log(checkList);
-  htmlElements.checkList.innerHTML = "123";
-
+htmlElements.btnCheckList.addEventListener("click", (elem) => {
+  elem.preventDefault();
+  fetch('https://my-first-backend-experience.herokuapp.com/dataTimeMeeting')
+  .then(response => response.json())
+  .then(json => { 
+    let meetingList = JSON.stringify(json);
+    htmlElements.checkList.innerHTML = meetingList;
+    console.log(meetingList);
+  });
+  // htmlElements.checkList.innerHTML = JSON.parse(json);
+  // return htmlElements.btnCheckList;
+  elem.stopPropagation();
 });
 
 
