@@ -18,6 +18,8 @@ function checkForKey(key) {
 }
 
 
+
+
 function addForm() {
   htmlElements.timeMeeting = document.querySelector(".fullName p:nth-child(3)");
   htmlElements.form = document.querySelector(".form-meeting");
@@ -59,6 +61,7 @@ function AddBtnWithTime() {
     btnMeeting.addEventListener("click", addForm);
     btnMeeting.classList.add("button-meeting");
     btnMeeting.innerText = `${timeToBtn}.00-${timeToBtn + 1}.00`;
+
     if (checkForKey(JSON.stringify(dateClick + " / " + btnMeeting.innerText))) {
       btnMeeting.setAttribute("disabled", true);
       btnMeeting.setAttribute("title", "Эта время занята");
@@ -111,7 +114,7 @@ function postData(url = '', data = {}) {
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
             'Content-Type': 'application/json',
-            // 'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow', // manual, *follow, error
         referrer: 'no-referrer', // no-referrer, *client

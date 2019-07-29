@@ -16,7 +16,3 @@ const calendar = new Calendar(
 );
 
 calendar.changeMonth();
-
-fetch('https://my-first-backend-experience.herokuapp.com/dataTimeMeeting/1')
-.then(response => response.json())
-.then(json => htmlElements.checkList.innerTEXT = `${json}`);

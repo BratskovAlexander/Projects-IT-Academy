@@ -25,12 +25,18 @@ htmlElements.btnCheckList.addEventListener("click", (elem) => {
   .then(response => response.json())
   .then(json => { 
     let meetingList = JSON.stringify(json);
-    htmlElements.checkList.innerHTML = meetingList;
-    console.log(meetingList);
+    let arr = meetingList.split('\",\"');
+    
+  for (let i = 0; i < arr.length; i++) {
+    let span = document.createElement('span');
+    htmlElements.checkList.appendChild(span);
+    span.innerHTML = ('<br>' + arr[i] );
+    ;
+}
+
   });
-  // htmlElements.checkList.innerHTML = JSON.parse(json);
-  // return htmlElements.btnCheckList;
-  elem.stopPropagation();
+
+    elem.stopPropagation();
 });
 
 
